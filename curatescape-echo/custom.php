@@ -1992,11 +1992,11 @@ function rl_footer_cta($html=null)
 function rl_social_array($max=5)
 {
    $services=array();
-   ($email=get_theme_option('contact_email') ? get_theme_option('contact_email') : get_option('administrator_email')) ? array_push($services, '<a target="_blank" rel="noopener" title="email" href="mailto:'.$email.'" class="button social icon-round email">'.rl_icon("mail").'</a>') : null;
-   ($facebook=get_theme_option('facebook_link')) ? array_push($services, '<a target="_blank" rel="noopener" title="facebook" href="'.$facebook.'" class="button social icon-round facebook">'.rl_icon("logo-facebook", null).'</a>') : null;
-   ($twitter=get_theme_option('twitter_username')) ? array_push($services, '<a target="_blank" rel="noopener" title="twitter" href="https://twitter.com/'.$twitter.'" class="button social icon-round twitter">'.rl_icon("logo-twitter", null).'</a>') : null;
-   ($youtube=get_theme_option('youtube_username')) ? array_push($services, '<a target="_blank" rel="noopener" title="youtube" href="'.$youtube.'" class="button social icon-round youtube">'.rl_icon("logo-youtube", null).'</a>') : null;
    ($instagram=get_theme_option('instagram_username')) ? array_push($services, '<a target="_blank" rel="noopener" title="instagram" href="https://www.instagram.com/'.$instagram.'" class="button social icon-round instagram">'.rl_icon("logo-instagram", null).'</a>') : null;
+   ($twitter=get_theme_option('twitter_username')) ? array_push($services, '<a target="_blank" rel="noopener" title="twitter" href="https://twitter.com/'.$twitter.'" class="button social icon-round twitter">'.rl_icon("logo-twitter", null).'</a>') : null;
+   ($facebook=get_theme_option('facebook_link')) ? array_push($services, '<a target="_blank" rel="noopener" title="facebook" href="'.$facebook.'" class="button social icon-round facebook">'.rl_icon("logo-facebook", null).'</a>') : null;
+  //  ($email=get_theme_option('contact_email') ? get_theme_option('contact_email') : get_option('administrator_email')) ? array_push($services, '<a target="_blank" rel="noopener" title="email" href="mailto:'.$email.'" class="button social icon-round email">'.rl_icon("mail").'</a>') : null;
+   ($youtube=get_theme_option('youtube_username')) ? array_push($services, '<a target="_blank" rel="noopener" title="youtube" href="'.$youtube.'" class="button social icon-round youtube">'.rl_icon("logo-youtube", null).'</a>') : null;
    ($pinterest=get_theme_option('pinterest_username')) ? array_push($services, '<a target="_blank" rel="noopener" title="pinterest" href="https://www.pinterest.com/'.$pinterest.'" class="button social icon-round pinterest">'.rl_icon("logo-pinterest", null).'</a>') : null;
    ($tumblr=get_theme_option('tumblr_link')) ? array_push($services, '<a target="_blank" rel="noopener" title="tumblr" href="'.$tumblr.'" class="button social icon-round tumblr">'.rl_icon("logo-tumblr", null).'</a>') : null;
    ($reddit=get_theme_option('reddit_link')) ? array_push($services, '<a target="_blank" rel="noopener" title="reddit" href="'.$reddit.'" class="button social icon-round reddit">'.rl_icon("logo-reddit", null).'</a>') : null;

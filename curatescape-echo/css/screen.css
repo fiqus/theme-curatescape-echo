@@ -2593,13 +2593,18 @@ footer .footer-random {
 footer .footer-random .button {
   margin-right: 0.5em;
 }
+footer .legend{
+  width: 30%; 
+  color: white;
+}
 footer .funlinks {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: self-end;
-  margin: 1em auto 3em;
+  margin: 1em 1em 3em;
   flex-wrap: wrap;
+  margin-left: auto;
 }
 
 footer .funlinks > div {
