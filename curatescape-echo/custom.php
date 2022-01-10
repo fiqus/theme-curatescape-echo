@@ -1711,7 +1711,7 @@ function rl_homepage_stealthmode($html = null)
 /*
 ** Display the Tours list
 */
-function rl_homepage_tours($html=null, $num=4, $scope='featured')
+function rl_homepage_tours($html=null, $num=3, $scope='featured')
 {
   if(plugin_is_active('TourBuilder') && (get_theme_option('homepage_tours_scope') !== "none")){
     // Build query
@@ -1742,7 +1742,13 @@ function rl_homepage_tours($html=null, $num=4, $scope='featured')
     
     // output
     if ($tours) {
-      $html .= '<h2 class="query-header-no-border">'.$heading.'</h2>';
+      $section_header = '<div id="tours" class="custom-link">';
+      $section_header .= '<h2 class="query-header-no-border">'.strtoupper($heading).'</h2>';
+      $section_header .= '<a class="to-right custom-link" href="/tours/browse">Ver todos los recorridos</a>'; 
+      $section_header .= '</div>';
+      $html = $section_header;
+
+      // $html .= '<h2 class="query-header-no-border">'.$heading.'</h2>';
       $html .= '<div class="home-tours-container cards">';
       for ($i = 0; $i < min(count($tours),$num); $i++) {
         set_current_record('tour', $tours[$i]);

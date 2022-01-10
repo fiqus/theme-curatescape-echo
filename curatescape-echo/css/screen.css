@@ -145,6 +145,8 @@
   --email: #0078d7;
   --apple: #000;
   --android: #54802d;
+
+  --tour-image-size: 350px;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -1286,6 +1288,9 @@ figcaption,
 .message a {
   color: var(--text-base);
 }
+.custom-link a{
+  color: #74B1F9 !important;
+}
 .message.warning {
   background: var(--message-warning);
 }
@@ -1343,6 +1348,10 @@ hr {
   border-bottom: var(--separator-line);
   margin: 1rem 0;
   max-width: 200px;
+}
+
+.to-right{
+  margin-left: auto;
 }
 
 /* Header Primary */
@@ -1798,7 +1807,11 @@ header.primary nav #nav-interactive a > i {
     margin-right: 0;
   }
 }
-
+#tours {
+  display: flex;
+  margin: 0 -10px;
+  align-items: baseline;
+}
 .home-project-meta {
   display: flex;
   flex-direction: row;
@@ -2933,11 +2946,13 @@ ul.pagination .button {
   display: flex;
   /* flex-direction: row; */
   justify-content: flex-start;
+  padding-right: 0 !important;
+  margin: 2px 2px 2px 2px !important;
   align-items: center;
 }
 .item-result.tour .tour-image {
-  width: 250px;
-  height: 250px;
+  width: var(--tour-image-size);
+  height: var(--tour-image-size);
   /* background-size: 250px; */
   background-repeat: no-repeat;
   /* background-position: -10px -10px, -10px 90px, 90px -10px, 90px 90px; */
@@ -2965,7 +2980,7 @@ ul.pagination .button {
   filter: none;
 }
 .item-result.tour .tour-image.single {
-  background-size: 250px;
+  background-size: var(--tour-image-size);
   background-position: center center;
 }
 .item-result.tour .separator {
@@ -2975,7 +2990,7 @@ ul.pagination .button {
 .tour-inner {
   margin: 0;
   padding: 0.4em 0 0 1em;
-  width: 250px;
+  width: var(--tour-image-size);
   height: 100px;
   /* border-left: var(--deco-border); */
   background-color: #537696;
