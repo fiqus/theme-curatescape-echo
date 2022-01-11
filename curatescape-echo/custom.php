@@ -1667,6 +1667,22 @@ function rl_homepage_projectmeta($html=null,$length=800)
   return '<section id="home-about" class="inner-padding">'.$html.'</section>';
 }
 
+function rl_homepage_about($html=null,$length=800)
+{
+  $image = '<div><img src="'.img('no-image-default.jpg').'"/></div>';
+  $text = get_theme_option('about') 
+  ? strip_tags(get_theme_option('about'), '<a><em><i><cite><strong><b><u><br><h1><h2>') 
+  : __('%s is powered by <a href="http://omeka.org/">Omeka</a> + <a href="http://curatescape.org/">Curatescape</a>, a humanities-centered web and mobile app framework available for both Android and iOS devices.', option('site_title'));
+  $html .= '<h2 class="query-header">'.__('About').'</h2>';
+  $html .= '<div class="story-columns">';
+    $html .= $image;
+    $html .= '<div id="home-about-main" class="column">'; 
+      $html .= '<div class="about-text">'.substr($text, 0, $length).(($length < strlen($text)) ? '&hellip;. ' : null).'</div>';
+    $html .= '</div>';
+  $html .= '</div>';
+  return '<section id="home-about" class="inner-padding">'.$html.'</section>';
+}
+
 
 /*
 ** Homepage Call to Action 
