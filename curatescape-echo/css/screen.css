@@ -2042,7 +2042,7 @@ figure.image-figure.border {
   width: 45%;
   margin-right: 5%;
   margin-bottom: 2rem;
-  float: left;
+  /* float: left; */
 }
 figure.image-figure.border figcaption {
   margin-bottom: 0;
