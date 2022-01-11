@@ -22,7 +22,7 @@
   --overlay: rgba(0, 0, 0, 0.65);
 
   /* Content Backgrounds */
-  --bg-body: var(--light-primary);
+  --bg-body: #F6F6F6;
   --bg-article: var(--light-primary);
   --bg-body-dark: var(--dark-tertiary-subtle);
   --bg-article-dark: var(--dark-tertiary-subtle);
@@ -1342,7 +1342,7 @@ hr {
 /* Header Primary */
 header.primary {
   width: 100%;
-  background: #E5E5E5;
+  background: #F6F6F6;
   position: relative;
 }
 header.primary nav {
@@ -1363,7 +1363,6 @@ header.primary a#home-logo img {
   align-self: center;
 }
 header.primary nav #nav-interactive {
-  background: #E5E5E5;
   padding-right: 3rem;
 }
 header.primary nav #nav-desktop {
