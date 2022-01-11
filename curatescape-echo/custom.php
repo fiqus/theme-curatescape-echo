@@ -1126,7 +1126,7 @@ function w3_valid_url($string){
 */
 function rl_the_byline($itemObj='item', $include_sponsor=false)
 {
-    $html='<div class="byline">'.__('By').' ';
+    $html='<div class="byline custom-link">'.__('By').' ';
     if (metadata($itemObj, array('Dublin Core', 'Creator'))) {
         $authors=metadata($itemObj, array('Dublin Core', 'Creator'), array('all'=>true));
         $total=count($authors);
