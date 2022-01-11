@@ -633,7 +633,7 @@ function rl_homepage_map($ishome=true)
         </figure>
       </div>
       <?php if($ishome):?>
-      <div class="view-more-link"><a class="button" href="/items/map"><?php echo __('View Map Page');?></a></div>
+      <!-- <div class="view-more-link"><a class="button" href="/items/map"><?php echo __('View Map Page');?></a></div> -->
       <?php endif;?>
     </section>
     <?php
