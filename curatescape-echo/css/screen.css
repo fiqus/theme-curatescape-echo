@@ -2864,10 +2864,7 @@ ul.pagination .button {
   width: 31.333%;
   align-self: start;
   padding: 1em 0;
-<<<<<<< HEAD
   /* border-bottom: var(--deco-border); */
-=======
->>>>>>> master
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
