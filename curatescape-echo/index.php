@@ -20,7 +20,7 @@ echo head(
             if(get_theme_option('homepage_map_placement') == 'middle'){
                 echo rl_homepage_map();
             }
-            echo rl_homepage_tours();
+
             // echo rl_homepage_tags();
             if(get_theme_option('homepage_map_placement') == 'bottom'){
                 echo rl_homepage_map();
