@@ -1126,7 +1126,9 @@ function w3_valid_url($string){
 */
 function rl_the_byline($itemObj='item', $include_sponsor=false)
 {
+
     $html='<div class="byline custom-link">'.'';
+
     if (metadata($itemObj, array('Dublin Core', 'Creator'))) {
         $authors=metadata($itemObj, array('Dublin Core', 'Creator'), array('all'=>true));
         $total=count($authors);
@@ -1586,7 +1588,8 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
     $mode = get_theme_option("random_or_recent");
     switch ($mode) {
       case 'recent':
-        $items=get_records('Item', array('featured'=>false,'hasImage'=>true,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
+        // $items=get_records('Item', array('featured'=>false,'hasImage'=>true,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
+        $items=get_records('Item', array('featured'=>false,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
         $param=__("Recent");
         break;
       case 'random':
@@ -1595,7 +1598,11 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
         break;
     }
     if(count($items)){
-      $html = '<h2 class="query-header">'.$param.' '.rl_item_label('plural').'</h2>';
+      $section_header = '<div id="recent-articles" class="custom-link">';
+      $section_header .= '<h2 class="query-header-no-border">'.strtoupper($param).' '.strtoupper(rl_item_label('plural')).'</h2>';
+      $section_header .= '<a class="to-right custom-link" href="/items/browse">Ver todos los artículos</a>'; 
+      $section_header .= '</div>';
+      $html = $section_header;
       $html .= '<div class="browse-items">';
         foreach($items as $item){
           set_current_record('item', $item);
@@ -1617,7 +1624,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
           $html .= '<article class="item-result '.($hasImage ? 'has-image' : 'no-image').'">';
           $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
           $html .= '<div class="result-details">';
-          $html .= rl_filed_under($item);
+          // $html .= rl_filed_under($item);
           $html .= rl_the_title_expanded($item);
           $html .= rl_the_byline($item, false);
           //$html .= link_to_item(__('View %s', rl_item_label('singular')),array('class'=>'readmore'));
@@ -1625,7 +1632,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
           $html .= '</article>';
         }
       $html .= '</div>';
-      $html .= '<div class="view-more-link"><a class="button" href="/items/browse/">'.__('Browse All %2s', rl_item_label('plural')).'</a></div>';
+      // $html .= '<div class="view-more-link"><a class="button" href="/items/browse/">'.__('Browse All %2s', rl_item_label('plural')).'</a></div>';
       return '<section id="home-recent-random" class="browse inner-padding">'.$html.'</section>';
     }else{
       return rl_admin_message('home-recent-random',array('admin','super'));
@@ -1733,7 +1740,7 @@ function rl_homepage_stealthmode($html = null)
 /*
 ** Display the Tours list
 */
-function rl_homepage_tours($html=null, $num=4, $scope='featured')
+function rl_homepage_tours($html=null, $num=3, $scope='featured')
 {
   if(plugin_is_active('TourBuilder') && (get_theme_option('homepage_tours_scope') !== "none")){
     // Build query
@@ -1764,8 +1771,14 @@ function rl_homepage_tours($html=null, $num=4, $scope='featured')
     
     // output
     if ($tours) {
-      $html .= '<h2 class="query-header">'.$heading.'</h2>';
-      $html .= '<div class="home-tours-container">';
+      $section_header = '<div id="tours" class="custom-link">';
+      $section_header .= '<h2 class="query-header-no-border">'.strtoupper($heading).'</h2>';
+      $section_header .= '<a class="to-right custom-link" href="/tours/browse">Ver todos los recorridos</a>'; 
+      $section_header .= '</div>';
+      $html = $section_header;
+
+      // $html .= '<h2 class="query-header-no-border">'.$heading.'</h2>';
+      $html .= '<div class="home-tours-container cards">';
       for ($i = 0; $i < min(count($tours),$num); $i++) {
         set_current_record('tour', $tours[$i]);
         $tour=get_current_tour();
@@ -1780,17 +1793,17 @@ function rl_homepage_tours($html=null, $num=4, $scope='featured')
                 }
             }
         }
-        $html .= '<article class="item-result tour">';
-          $html .= '<a aria-label="'.tour('title').'" class="tour-image '.(count($bg) < 4 ? 'single' : 'multi').'" style="background-image:'.implode(',', $bg).'" href="'.WEB_ROOT.'/tours/show/'.tour('id').'"></a><div class="separator thin flush-bottom flush-top"></div>';
-          $html .= '<div class="tour-inner">';
-            $html .= '<a class="permalink" href="' . WEB_ROOT . '/tours/show/'. tour('id').'"><h3 class="title">' . tour('title').'</h3></a>'.
-                '<span class="byline">'.rl_icon('compass').__('%s Locations', rl_tour_total_items($tours[$i])).'</span>';
-            $html .= '<p class="tour-snip">'.snippet(strip_tags(htmlspecialchars_decode(tour('description'))), 0, 200).'</p>';
+        $html .= '<article class="item-result tour card">';
+          $html .= '<a aria-label="'.tour('title').'" class="tour-image content '.(count($bg) < 4 ? 'single' : 'multi').'" style="background-image:'.implode(',', $bg).'" href="'.WEB_ROOT.'/tours/show/'.tour('id').'"></a>';
+          $html .= '<div class="tour-inner footer">';
+            $html .= '<a class="permalink" href="' . WEB_ROOT . '/tours/show/'. tour('id').'"><h3 class="title">' . tour('title').'</h3></a>';
+                // '<span class="byline">'.rl_icon('compass').__('%s Locations', rl_tour_total_items($tours[$i])).'</span>';
+            // $html .= '<p class="tour-snip">'.snippet(strip_tags(htmlspecialchars_decode(tour('description'))), 0, 200).'</p>';
           $html .= '</div>';
         $html .= '</article>';
       }
       $html .= '</div>';
-      $html .= '<div class="view-more-link"><a class="button" href="'.WEB_ROOT.'/tours/browse/">'.__('Browse All <span>%s</span>', rl_tour_label('plural')).'</a></div>';
+      // $html .= '<div class="view-more-link"><a class="button" href="'.WEB_ROOT.'/tours/browse/">'.__('Browse All <span>%s</span>', rl_tour_label('plural')).'</a></div>';
       return '<section id="home-tours" class="browse inner-padding">'.$html.'</section>';
     } else {
       return rl_admin_message('home-tours',array('admin','super'));
