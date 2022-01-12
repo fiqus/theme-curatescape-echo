@@ -633,7 +633,7 @@ function rl_homepage_map($ishome=true)
         </figure>
       </div>
       <?php if($ishome):?>
-      <div class="view-more-link"><a class="button" href="/items/map"><?php echo __('View Map Page');?></a></div>
+      <!-- <div class="view-more-link"><a class="button" href="/items/map"><?php echo __('View Map Page');?></a></div> -->
       <?php endif;?>
     </section>
     <?php
@@ -1126,7 +1126,7 @@ function w3_valid_url($string){
 */
 function rl_the_byline($itemObj='item', $include_sponsor=false)
 {
-    $html='<div class="byline">'.__('By').' ';
+    $html='<div class="byline custom-link">'.__('By').' ';
     if (metadata($itemObj, array('Dublin Core', 'Creator'))) {
         $authors=metadata($itemObj, array('Dublin Core', 'Creator'), array('all'=>true));
         $total=count($authors);
@@ -1580,7 +1580,8 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
     $mode = get_theme_option("random_or_recent");
     switch ($mode) {
       case 'recent':
-        $items=get_records('Item', array('featured'=>false,'hasImage'=>true,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
+        // $items=get_records('Item', array('featured'=>false,'hasImage'=>true,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
+        $items=get_records('Item', array('featured'=>false,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
         $param=__("Recent");
         break;
       case 'random':
@@ -1589,7 +1590,11 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
         break;
     }
     if(count($items)){
-      $html = '<h2 class="query-header">'.$param.' '.rl_item_label('plural').'</h2>';
+      $section_header = '<div id="recent-articles" class="custom-link">';
+      $section_header .= '<h2 class="query-header-no-border">'.strtoupper($param).' '.strtoupper(rl_item_label('plural')).'</h2>';
+      $section_header .= '<a class="to-right custom-link" href="/items/browse">Ver todos los artículos</a>'; 
+      $section_header .= '</div>';
+      $html = $section_header;
       $html .= '<div class="browse-items">';
         foreach($items as $item){
           set_current_record('item', $item);
@@ -1611,7 +1616,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
           $html .= '<article class="item-result '.($hasImage ? 'has-image' : 'no-image').'">';
           $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
           $html .= '<div class="result-details">';
-          $html .= rl_filed_under($item);
+          // $html .= rl_filed_under($item);
           $html .= rl_the_title_expanded($item);
           $html .= rl_the_byline($item, false);
           //$html .= link_to_item(__('View %s', rl_item_label('singular')),array('class'=>'readmore'));
@@ -1619,7 +1624,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
           $html .= '</article>';
         }
       $html .= '</div>';
-      $html .= '<div class="view-more-link"><a class="button" href="/items/browse/">'.__('Browse All %2s', rl_item_label('plural')).'</a></div>';
+      // $html .= '<div class="view-more-link"><a class="button" href="/items/browse/">'.__('Browse All %2s', rl_item_label('plural')).'</a></div>';
       return '<section id="home-recent-random" class="browse inner-padding">'.$html.'</section>';
     }else{
       return rl_admin_message('home-recent-random',array('admin','super'));
@@ -1664,6 +1669,22 @@ function rl_homepage_projectmeta($html=null,$length=800)
     $html .= $cta;
   $html .= '</div>';
   
+  return '<section id="home-about" class="inner-padding">'.$html.'</section>';
+}
+
+function rl_homepage_about($html=null,$length=800)
+{
+  $image = '<div><img src="'.img('no-image-default.jpg').'"/></div>';
+  $text = get_theme_option('about') 
+  ? strip_tags(get_theme_option('about'), '<a><em><i><cite><strong><b><u><br><h1><h2>') 
+  : __('%s is powered by <a href="http://omeka.org/">Omeka</a> + <a href="http://curatescape.org/">Curatescape</a>, a humanities-centered web and mobile app framework available for both Android and iOS devices.', option('site_title'));
+  $html .= '<h2 class="query-header">'.__('About').'</h2>';
+  $html .= '<div class="story-columns">';
+    $html .= $image;
+    $html .= '<div id="home-about-main" class="column">'; 
+      $html .= '<div class="about-text">'.substr($text, 0, $length).(($length < strlen($text)) ? '&hellip;. ' : null).'</div>';
+    $html .= '</div>';
+  $html .= '</div>';
   return '<section id="home-about" class="inner-padding">'.$html.'</section>';
 }
 
