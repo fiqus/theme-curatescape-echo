@@ -2842,7 +2842,7 @@ ul.pagination .button {
 }
 @media screen and (min-width: 1350px) {
   .browse .browse-items {
-    margin: 0 -100px;
+    margin: 0 -15px;
   }
 }
 @media screen and (min-width: 1250px) and (max-width: 1350px) {
@@ -2976,12 +2976,18 @@ ul.pagination .button {
 }
 
 /* COLLECTIONS / TOURS */
+#browse-tours-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 .item-result .byline .icon svg {
   margin-right: 0.25em;
   height: 1em;
   width: 1em;
 }
-.item-result.tour,
+/* .item-result.tour, */
 .item-result.collection {
   width: 100%;
 }
@@ -2995,7 +3001,7 @@ ul.pagination .button {
   /* flex-direction: row; */
   justify-content: flex-start;
   padding-right: 0 !important;
-  margin: 2px 2px 2px 2px !important;
+  margin: 2px 10px 2px 10px;
   align-items: center;
 }
 .item-result.tour .tour-image {
