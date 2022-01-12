@@ -1168,7 +1168,7 @@ function rl_the_byline($itemObj='item', $include_sponsor=false)
 
 function rl_the_byline_for_featured_item($itemObj='item', $include_sponsor=false)
 {
-    $html='<div class="featured-card-author">';
+    $html='';
     if (metadata($itemObj, array('Dublin Core', 'Creator'))) {
         $authors=metadata($itemObj, array('Dublin Core', 'Creator'), array('all'=>true));
         $total=count($authors);
@@ -1197,7 +1197,6 @@ function rl_the_byline_for_featured_item($itemObj='item', $include_sponsor=false
     } else {
         $html .= option('site_title');
     }
-    $html .='</div>';
     return $html;
 }
 
@@ -1220,6 +1219,15 @@ function rl_post_date()
       $m=format_date(metadata('item', 'modified'));
       return '<div class="item-post-date">'.__('Published on %s.', $a).(($a!==$m) ? ' '.__('Last updated on %s.', $m) : null).'</div>';
    }
+}
+
+function featured_card_post_date() {
+    $a=format_date(metadata('item', 'added'));
+    return '<a>'.$a.'</a>';
+}
+
+function featured_card_byline_and_post_date($item) {
+    return rl_the_byline_for_featured_item($item, false).' <a>  -  </a> '.featured_card_post_date();
 }
 
 /*
@@ -1581,11 +1589,14 @@ function rl_homepage_featured($num=4,$html=null,$index=1)
                     $primary .= '<a class="title-card-subject"> ARTÍCULO DESTACADO </a>';
                   $primary .= '</div>';
                   $primary .= rl_the_title_expanded($item);
-                  $primary .= rl_the_byline_for_featured_item($item, false);
+                  $primary .= '<div class="featured-card-author">';
+                      $primary .= featured_card_byline_and_post_date($item);
+                  $primary .= '</div>';
+                  $primary .= '<div class="featured-card-text">'.rl_the_text($item).'</div>';
                   $primary .= read_item_button($item);
                 $primary .= '</div>';
               $primary .= '</div>';
-              $primary .= '<div id="section02">';
+              $primary .= '<div id="featured-item-scroll-button">';
                 $primary .= '<a href="#home-recent-random"><span></span></a>';
               $primary .= '</div>';
             $primary .= '</article>';          

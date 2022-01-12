@@ -1682,6 +1682,14 @@ header.primary nav #nav-interactive a > i {
   text-decoration: none;
 }
 
+.featured-card-text p {
+  display: -webkit-box;
+  max-width: 50rem;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .browse .featured-card-image {
   width: 300px;
   height: 300px;
@@ -2197,12 +2205,12 @@ figure#story-map figcaption {
   margin-top: 0;
 }
 
-#section02 {
+#featured-item-scroll-button {
   position: relative; 
   background: url(https://www.nxworld.net/example/css-scroll-down-button/bg02.jpg) center center / cover no-repeat;
-  margin-top: 25.5%;
+  margin-top: 15.7%;
 }
-#section02 a span {
+#featured-item-scroll-button a span {
   position: absolute;
   top: 0;
   left: 50%;
@@ -2215,7 +2223,7 @@ figure#story-map figcaption {
   background: white;
   box-shadow: 1px 2px 6px gray;
 }
-#section02 a span::after {
+#featured-item-scroll-button a span::after {
   position: absolute;
   top: 50%;
   left: 50%;
