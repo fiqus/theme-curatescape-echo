@@ -99,7 +99,7 @@ echo head(array(
                 <?php if ($has_image_count):?>
                 <div itemscope itemtype="http://schema.org/ImageGallery" id="images" data-toc="#images" data-pswp="<?php echo src('photoswipe.min.js', 'javascripts/pswp');?>" data-pswp-ui="<?php echo src('photoswipe-ui-default.min.js', 'javascripts/pswp');?>" data-pswp-css="<?php echo src('photoswipe.css', 'javascripts/pswp');?>" data-pswp-skin-css="<?php echo src('default-skin.css', 'javascripts/pswp/default-skin');?>">
                     
-                    <h2><?php echo __('Images');?></h2>
+                    <h2><?php echo __('Gallery');?></h2>
                     <?php foreach ($filesforitem['images'] as $image) {
                         echo rl_gallery_figure($image, 'border');
                     }?>
