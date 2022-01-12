@@ -1814,7 +1814,7 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
         $media_list .= '<li><a title="'.__('Skip to %s', __('Audio')).'" class="icon-capsule" href="#audio">'.'<span class="label">'.__('Audio').' ('.$has_audio.')</span>'.rl_icon("headset").'</a></li>';
     }
     if ($has_images) {
-        $media_list .= '<li><a title="'.__('Skip to %s', __('Images')).'" class="icon-capsule" href="#images">'.'<span class="label">'.__('Gallery').' ('.$has_images.')</span>'.rl_icon("images").'</a></li>';
+        $media_list .= '<li><a title="'.__('Skip to %s', __('Images')).'" class="icon-capsule" href="#images">'.'<span class="label">'.__('Gallery').'</span>'.rl_icon("images").'</a></li>';
     }
     if ($has_other) {
         $media_list .= '<li><a title="'.__('Skip to %s', __('Documents')).'" class="icon-capsule" href="#documents">'.'<span class="label">'.__('Documents').' ('.$has_other.')</span>'.rl_icon("documents").'</a></li>';

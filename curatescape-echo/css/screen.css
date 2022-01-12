@@ -2059,7 +2059,7 @@ figure .gallery-image + figcaption > span:first-child::before {
 
 figure.image-figure.border {
   /* border-bottom: var(--deco-border); */
-  width: 45%;
+  width: 300px;
   margin-right: 5%;
   margin-bottom: 2rem;
   /* float: left; */
