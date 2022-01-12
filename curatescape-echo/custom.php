@@ -1787,7 +1787,7 @@ function rl_homepage_tours($html=null, $num=4, $scope='featured')
 // return story navigation and (when applicable) tour navigation
 function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $has_location=false, $tour=false, $tour_index=false)
 {
-    $totop = '<li class="foot"><a title="'.__('Return to Top').'" class="icon-capsule no-bg" href="#site-content">'.'<span class="label">'.__('Top').'</span>'.rl_icon("arrow-up").'</a></li>';
+    $totop = '<li class="foot"><a title="'.__('Return to Top').'" class="icon-capsule no-bg" href="#site-content">'.'<span class="label">'.__('Up').'</span>'.rl_icon("arrow-up").'</a></li>';
 
     // Media List HTML
     $media_list = null;
@@ -1798,7 +1798,7 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
         $media_list .= '<li><a title="'.__('Skip to %s', __('Audio')).'" class="icon-capsule" href="#audio">'.'<span class="label">'.__('Audio').' ('.$has_audio.')</span>'.rl_icon("headset").'</a></li>';
     }
     if ($has_images) {
-        $media_list .= '<li><a title="'.__('Skip to %s', __('Images')).'" class="icon-capsule" href="#images">'.'<span class="label">'.__('Images').' ('.$has_images.')</span>'.rl_icon("images").'</a></li>';
+        $media_list .= '<li><a title="'.__('Skip to %s', __('Images')).'" class="icon-capsule" href="#images">'.'<span class="label">'.__('Gallery').' ('.$has_images.')</span>'.rl_icon("images").'</a></li>';
     }
     if ($has_other) {
         $media_list .= '<li><a title="'.__('Skip to %s', __('Documents')).'" class="icon-capsule" href="#documents">'.'<span class="label">'.__('Documents').' ('.$has_other.')</span>'.rl_icon("documents").'</a></li>';
@@ -1829,13 +1829,13 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
     // Location HTML
     $location = null;
     if ($has_location && plugin_is_active('Geolocation')) {
-        $location .= '<li><a title="'.__('Skip to %s', __('Map Location')).'" class="icon-capsule" href="#map-section">'.'<span class="label">'.__('Location').'</span>'.rl_icon("location").'</a></li>';
+        $location .= '<li><a title="'.__('Skip to %s', __('Map Location')).'" class="icon-capsule" href="#map-section">'.'<span class="label">'.__('Map').'</span>'.rl_icon("location").'</a></li>';
     }
 
     // Output HTML
     $html .= '<nav class="rl-toc"><ul>'.
       // '<li class="head"><span title="'.__('%s Contents', rl_item_label('singular')).'" class="icon-capsule label">'.rl_icon("list").'<span class="label">'.__('%s Contents', rl_item_label('singular')).'</span></span></li>'.
-      '<li><a title="'.__('Skip to Main Text').'" class="icon-capsule" href="#text-section">'.'<span class="label">'.__('Main Text').'</span>'.rl_icon("book").'</a></li>'.
+      '<li><a title="'.__('Skip to Main Text').'" class="icon-capsule" href="#text-section">'.'<span class="label">'.__('Content').'</span>'.rl_icon("book").'</a></li>'.
       $media_list.
       $location.
       // '<li><a title="'.__('Skip to %s', __('Metadata')).'" class="icon-capsule" href="#metadata-section">'.rl_icon("pricetags").'<span class="label">'.__('Metadata').'</span></a></li>'.

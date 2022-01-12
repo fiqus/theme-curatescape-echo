@@ -72,7 +72,7 @@ echo head(array(
         </div>
         <div class="column">
 
-            <section aria-label="<?php echo __('Main Text');?>" id="text-section" data-toc="#text-section">
+            <section aria-label="<?php echo __('Content');?>" id="text-section" data-toc="#text-section">
                 <?php echo $the_lede ? $the_lede.'<div class="separator flush-top"></div>' : null; ?>
                 <?php echo rl_the_text(); ?>
                 <?php echo rl_factoid();?>
@@ -119,7 +119,7 @@ echo head(array(
 
             <?php if ($has_location && plugin_is_active('Geolocation')): ?>
             <section id="map-section" data-toc="#map-section">
-                <h2><?php echo __('Location');?></h2>
+                <h2><?php echo __('Map');?></h2>
                 <?php echo rl_story_map_single(rl_the_title(), $location, $address, $hero_img, $hero_orientation);?>
             </section>
             <?php endif;?>

@@ -1961,8 +1961,11 @@ aside#social-actions .button {
 figure.image-figure,
 .gallery-image .border{
   max-width: 1408px;
-  max-height: 443px;
+  
   display:inline-block;
+}
+.border{
+  max-height: 300px;
 }
 .featured{
   display: flex !important;
@@ -2003,7 +2006,7 @@ figure.image-figure,
 } */
 .gallery-image.portrait {
   background-position: center 20%;
-  height: 550px;
+  /* height: 550px; */
 }
 figure .gallery-image + figcaption {
   max-width: calc(700px - 5em);
