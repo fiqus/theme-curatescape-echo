@@ -146,11 +146,11 @@ echo head(array(
         </div>
     </div>
 
-    <?php if (get_theme_option('comments_id')):?>
-    <section aria-label="<?php echo __('Comments');?>" id="comments-section">
-        <?php echo rl_display_comments();?>
+    <section >
+        <div>
+            <?php echo rl_homepage_recent_random();?>
+        </div>
     </section>
-    <?php endif;?>
 </article>
 
 <?php echo foot(); ?>
