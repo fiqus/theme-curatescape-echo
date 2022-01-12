@@ -345,12 +345,12 @@ h3,
 h4,
 h5,
 .subtitle {
-  color: var(--text-heading);
-  margin: 3rem 0 1.38rem;
-  font-family: var(--font-heading);
-  font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: inherit;
+color: var(--text-heading);
+margin: 2rem 0 1rem;
+font-family: var(--font-heading);
+font-weight: 400;
+line-height: 1.3;
+letter-spacing: inherit;
 }
 
 h1,
@@ -377,6 +377,17 @@ h4,
   font-size: 1.44rem;
 }
 
+h2,
+.query-header{
+font-size: 1.8rem;
+color:#5E5E5E;
+text-transform: uppercase;
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: normal;
+}
+
+
 h5,
 .h5,
 .lede {
@@ -392,7 +403,7 @@ small,
 .query-header {
   font-family: var(--font-ui);
   margin-top: 1rem;
-  border-bottom: var(--deco-border-dashed);
+/* border-bottom: var(--deco-border-dashed); */
 }
 .title {
   color: var(--article-header-title);
@@ -1807,6 +1818,9 @@ header.primary nav #nav-interactive a > i {
     max-width: none;
     margin-right: 0;
   }
+}
+.about-text{
+  margin-right: 3em;
 }
 
 .home-project-meta {
