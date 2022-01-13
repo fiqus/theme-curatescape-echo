@@ -534,7 +534,7 @@ function rl_global_header($html=null)
         <div id="nav-desktop">
             <?php echo get_theme_option('quicklink_story') ? '<a class="button transparent '.((is_current_url('/items/browse')) ? 'active' : null).'" href="'.url('items/browse').'">'.rl_item_label('plural').'</a>' : null; ?>
             <?php echo get_theme_option('quicklink_tour') && plugin_is_active('TourBuilder') ? '<a class="button transparent '.((is_current_url('/tours/browse')) ? 'active' : null).'" href="'.url('tours/browse').'">'.rl_tour_label('plural').'</a>' : null; ?>
-            <?php echo get_theme_option('quicklink_map') && plugin_is_active('Geolocation') ? '<a class="button transparent '.((is_current_url('/items/map')) ? 'active' : null).'" href="'.url('items/map').'">'.__('Map').'</a>' : null; ?>
+            <?php echo get_theme_option('quicklink_map') && plugin_is_active('Geolocation') ? '<a class="button transparent '.((is_current_url('/items/map')) ? 'active' : null).'" href="#home-map">'.__('Map').'</a>' : null; ?>
             <?php echo '<a class="button transparent '.' " href="#home-about">'.Nosotros.'</a>'; ?>
         </div>
         <div id="nav-interactive">
