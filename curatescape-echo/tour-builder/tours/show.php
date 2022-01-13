@@ -44,7 +44,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
 
         
 
-        <div>
+        <div class="tour-content">
             <!-- <div class="separator flush-top center"></div> -->
             <section id="tour-items" class="browse inner-padding" aria-label="<?php echo __('%s Locations', rl_tour_label('singular'));?>">
                 <?php echo tour_items($tour) ?>
@@ -52,11 +52,11 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
 
           
 
-            <?php if ($ps = metadata('tour', 'Postscript Text')):?>
+            <!-- <?php if ($ps = metadata('tour', 'Postscript Text')):?>
             <section id="tour-postscript" class="max-content-width inner-padding caption" aria-label="<?php echo __('%s Postscript', rl_tour_label('singular'));?>">
                 <p><?php echo htmlspecialchars_decode(metadata('tour', 'Postscript Text')); ?></p>
             </section>
-            <?php endif;?>
+            <?php endif;?> -->
 
         </div>
 <!-- 

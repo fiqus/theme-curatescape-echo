@@ -1227,6 +1227,9 @@ figcaption,
   justify-content: space-between;
   text-align: left;
 }
+.tour-content{
+  background-color: var(--bg-body);
+}
 .tour-columns .column:first-child {
   min-width: 10em;
   padding-left: 1em;
@@ -2842,6 +2845,7 @@ ul.pagination .button {
   margin-left: 2em;
   margin-bottom: -1em;
   flex-grow: 1;
+  background-color: var(--bg-body);
 }
 .browse .browse-items .result-details {
   padding: 1em 1em 2em;
@@ -2912,7 +2916,7 @@ ul.pagination .button {
 .browse .item-result {
   width: 31.333%;
   align-self: start;
-  padding: 1em 0;
+  /* padding: 1em 0; */
   /* border-bottom: var(--deco-border); */
   margin-bottom: 2rem;
   display: flex;
