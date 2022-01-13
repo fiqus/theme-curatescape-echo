@@ -1316,9 +1316,9 @@ figcaption,
 .message a {
   color: var(--text-base);
 }
-.custom-link a{
+/* .custom-link a{
   color: #74B1F9 !important;
-}
+} */
 .message.warning {
   background: var(--message-warning);
 }
@@ -3112,7 +3112,7 @@ ul.pagination .button {
   margin: 0 auto 1rem;
 }
 #tours.show .browse .item-result {
-  width: 100%;
+  width: 30%;
 }
 #tour-header {
   text-align: center;

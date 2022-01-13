@@ -1643,6 +1643,45 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
 }
 
 /*
+** Tour Items
+*/ 
+function tour_items($tour){
+  $section_header = '<div id="recent-articles" class="custom-link">';
+  $section_header .= '<h2 class="query-header-no-border">'.strtoupper('Tour Stories').'</h2>';
+  $section_header .= '</div>';
+  $html = $section_header;
+  $html .= '<div class="browse-items">';
+  foreach ($tour->getItems() as $item):{
+      set_current_record('item', $item);
+      $tags=tag_string(get_current_record('item'), url('items/browse'));
+      $hasImage=metadata($item, 'has thumbnail');
+      if ($item_image = rl_get_first_image_src($item)) {
+          $size=getimagesize($item_image);
+          $orientation = $size && ($size[0] > $size[1]) ? 'landscape' : 'portrait';
+      } elseif ($hasImage && (!stripos($img, 'ionicons') && !stripos($img, 'fallback'))) {
+          $img = item_image('fullsize');
+          preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $img, $result);
+          $item_image = array_pop($result);
+          $size=getimagesize($item_image);
+          $orientation = $size && ($size[0] > $size[1]) ? 'landscape' : 'portrait';
+      }else{
+          $orientation=null;
+          $item_image=null;
+      }
+      $html .= '<article class="item-result '.($hasImage ? 'has-image' : 'no-image').'">';
+      $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
+      $html .= '<div class="result-details">';
+      $html .= rl_the_title_expanded($item);
+      $html .= rl_the_byline($item, false);
+      $html .= '</div>';
+      $html .= '</article>';
+      }
+  endforeach;
+  $html .= '</div>';
+  return '<section id="home-recent-random" class="browse inner-padding">'.$html.'</section>';
+}
+
+/*
 ** Homepage Tags
 */
 function rl_homepage_tags($num=25)
