@@ -811,6 +811,11 @@ function rl_the_title_expanded($item='item')
     return link_to($item, 'show', $title, array('class'=>'permalink'));
 }
 
+function read_item_button($item='item') {
+  $button = '<button class="featured-card-button"> Leer Artículo</button>';
+  return link_to($item, 'show', $button, array('class'=>'permalink'));
+}
+
 /*
 ** Snippet: Lede + Story (for search/browse/home)
 */
@@ -1164,6 +1169,41 @@ function rl_the_byline($itemObj='item', $include_sponsor=false)
     return $html;
 }
 
+function rl_the_byline_for_featured_item($itemObj='item', $include_sponsor=false)
+{
+    $html='';
+    if (metadata($itemObj, array('Dublin Core', 'Creator'))) {
+        $authors=metadata($itemObj, array('Dublin Core', 'Creator'), array('all'=>true));
+        $total=count($authors);
+        $index=1;
+        $authlink=1;
+        foreach ($authors as $author) {
+            if ($authlink==1) {
+                $href=w3_valid_url('/items/browse?search=&advanced[0][element_id]=39&advanced[0][type]=is+exactly&advanced[0][terms]='.$author);
+                $author='<a href="'.$href.'">'.$author.'</a>';
+            }
+            switch ($index) {
+               case ($total):
+               $delim ='';
+               break;
+               case ($total-1):
+               $delim =' <span class="amp">&amp;</span> ';
+               break;
+
+               default:
+               $delim =', ';
+               break;
+            }
+            $html .= $author.$delim;
+            $index++;
+        }
+    } else {
+        $html .= option('site_title');
+    }
+    return $html;
+}
+
+
 /*
 ** Custom item citation
 */
@@ -1189,6 +1229,15 @@ function rl_get_publish_date()
   $a=format_date(metadata('item', 'added'));
   return '<div class="item-title-date">'.__(' %s.', $a).'</div>';
 
+}
+
+function featured_card_post_date() {
+    $a=format_date(metadata('item', 'added'));
+    return '<a>'.$a.'</a>';
+}
+
+function featured_card_byline_and_post_date($item) {
+    return rl_the_byline_for_featured_item($item, false).' <a>  -  </a> '.featured_card_post_date();
 }
 
 /*
@@ -1523,7 +1572,6 @@ function rl_homepage_featured($num=4,$html=null,$index=1)
     $orderby = get_theme_option("homepage_featured_order") ? get_theme_option("homepage_featured_order") : "modified";
     $items=get_records('Item', array('featured'=>true,'hasImage'=>true,'sort_field' => $orderby, 'sort_dir' => 'd','public'=>true), $num);
     if(count($items)){
-      $html = '<h2 class="query-header">'.__('Featured %s',rl_item_label('plural')).'</h2>';
       $html .= '<div class="featured-card-container">';
         $primary=null;
         $secondary=null;
@@ -1545,19 +1593,23 @@ function rl_homepage_featured($num=4,$html=null,$index=1)
             }          
             $primary .= '<article class="featured-card featured-'.$index.'">';
               $primary .= '<div class="background-image '.$orientation.'" style="background-image:url('.$item_image.')"></div>';
-              $primary .= '<div class="background-gradient"></div>';
               $primary .= '<div class="featured-card-inner inner-padding">';
-                $primary .= '<div class="featured-card-image">';
-                  $primary .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container'));
-                $primary .= '</div>';
                 $primary .= '<div class="featured-card-content">';
-                  $primary .= rl_filed_under($item);
-                  $primary .= '<div class="separator wide thin flush-top"></div>';
-                  $primary .= rl_the_title_expanded($item).'<div class="separator"></div>';
-                  $primary .= rl_the_byline($item, false);
+                  $primary .= '<div>';
+                    $primary .= '<a class="title-card-subject"> ARTÍCULO DESTACADO </a>';
+                  $primary .= '</div>';
+                  $primary .= rl_the_title_expanded($item);
+                  $primary .= '<div class="featured-card-author">';
+                      $primary .= featured_card_byline_and_post_date($item);
+                  $primary .= '</div>';
+                  $primary .= '<div class="featured-card-text">'.rl_the_text($item).'</div>';
+                  $primary .= read_item_button($item);
                 $primary .= '</div>';
               $primary .= '</div>';
-            $primary .= '</article>';          
+              $primary .= '<div id="featured-item-scroll-button">';
+                $primary .= '<a href="#home-recent-random"><span></span></a>';
+              $primary .= '</div>';
+            $primary .= '</article>';
           }else{
             $secondary .= '<article class="featured-card featured-'.$index.'">';
                 $secondary .= '<div class="featured-card-inner inner-padding">';
@@ -1567,13 +1619,12 @@ function rl_homepage_featured($num=4,$html=null,$index=1)
                     $secondary .= rl_the_byline($item, false);
                   $secondary .= '</div>';
                 $secondary .= '</div>';
-            $secondary .= '</article>';          
+            $secondary .= '</article>';
           }
           $index++;
         }
       $html .= $primary.'<div class="secondary">'.$secondary.'</div>';
       $html .= '</div>';
-      $html .= '<div class="view-more-link"><a class="button" href="/items/browse?featured=1">'.__('Browse All Featured %2s', rl_item_label('plural')).'</a></div>';
       return '<section id="home-featured" class="inner-padding browse">'.$html.'</section>';
     }else{
       return rl_admin_message('home-featured',array('admin','super'));
@@ -1602,7 +1653,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
     if(count($items)){
       $section_header = '<div id="recent-articles" class="custom-link">';
       $section_header .= '<h2 class="query-header-no-border">'.strtoupper($param).' '.strtoupper(rl_item_label('plural')).'</h2>';
-      $section_header .= '<a class="to-right custom-link" href="/items/browse">Ver todos los artículos</a>'; 
+      $section_header .= '<a class="to-right custom-link" href="/items/browse">Ver todos los artículos</a>';
       $section_header .= '</div>';
       $html = $section_header;
       $html .= '<div class="browse-items">';
@@ -1775,7 +1826,7 @@ function rl_homepage_tours($html=null, $num=3, $scope='featured')
     if ($tours) {
       $section_header = '<div id="tours" class="custom-link">';
       $section_header .= '<h2 class="query-header-no-border">'.strtoupper($heading).'</h2>';
-      $section_header .= '<a class="to-right custom-link" href="/tours/browse">Ver todos los recorridos</a>'; 
+      $section_header .= '<a class="to-right custom-link" href="/tours/browse">Ver todos los recorridos</a>';
       $section_header .= '</div>';
       $html = $section_header;
 

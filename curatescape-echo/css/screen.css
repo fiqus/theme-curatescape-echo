@@ -289,6 +289,7 @@ html {
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
   accent-color: var(--link-text-hover);
+  scroll-behavior: smooth;
 }
 :focus-visible {
   outline-color: var(--link-text-hover);
@@ -1629,11 +1630,15 @@ header.primary nav #nav-interactive a > i {
 .featured-card-container {
   display: flex;
   flex-direction: row;
+  height: 38rem;
 }
 .featured-card.featured-1 {
-  width: 50%;
+  width: 100%;
   flex-shrink: 0;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .featured-card .background-image {
   position: absolute;
@@ -1642,7 +1647,6 @@ header.primary nav #nav-interactive a > i {
   left: 0;
   right: 0;
   z-index: 0;
-  filter: grayscale(1);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1664,16 +1668,11 @@ header.primary nav #nav-interactive a > i {
   padding: 2em 0;
 }
 .featured-card.featured-1 .featured-card-inner {
-  background-image: linear-gradient(
-    to top,
-    var(--featured-one) 50%,
-    transparent
-  );
-  height: 100%;
+  background-color: white;
+  width: 25%;
+  margin-top: 0;
+  margin-left: 3rem;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
   position: relative;
   z-index: 2;
 }
@@ -1687,7 +1686,7 @@ header.primary nav #nav-interactive a > i {
   background: var(--link-text-on-dark);
 }
 .featured-card.featured-1 .title {
-  color: var(--text-heading-on-dark);
+  color: #000000;
 }
 .featured-card.featured-1 .subtitle {
   color: var(--text-subheading-on-dark);
@@ -1710,6 +1709,26 @@ header.primary nav #nav-interactive a > i {
 .featured-card.featured-1 .permalink:focus {
   color: var(--text-heading-on-dark);
 }
+
+.featured-card-button {
+  background-color: #489AFA; 
+  color: white;
+}
+
+.featured-card-author a {
+  font-family: var(--font-ui);
+  color: #8D8D8D;
+  text-decoration: none;
+}
+
+.featured-card-text {
+  display: -webkit-box;
+  max-width: 50rem;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .browse .featured-card-image {
   width: 300px;
   height: 300px;
@@ -1943,7 +1962,9 @@ article header .title-card-image figcaption .file-description {
   display: none;
 }
 .title-card-subject {
+  font-family: var(--font-ui);
   padding-bottom: 0.25em;
+  color: #8D8D8D;
 }
 .title-card-subject a::before {
   background: var(--link-text);
@@ -2260,6 +2281,39 @@ figure#story-map figcaption {
 }
 #map-actions .button {
   margin-top: 0;
+}
+
+#featured-item-scroll-button {
+  position: relative; 
+  background: url(https://www.nxworld.net/example/css-scroll-down-button/bg02.jpg) center center / cover no-repeat;
+  margin-bottom: 1.2rem;
+}
+#featured-item-scroll-button a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin-left: -23px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  box-sizing: border-box;
+  background: white;
+  box-shadow: 1px 2px 6px gray;
+}
+#featured-item-scroll-button a span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: -12px 0 0 -8px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
 }
 
 /* Audio/Video */
