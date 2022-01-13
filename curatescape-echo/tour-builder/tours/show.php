@@ -16,16 +16,16 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
         <header id="tour-header">
             <div class="max-content-width inner-padding">
                 <h1 class="tour-title title"><?php echo $tourTitle; ?></h1>
-                <?php echo '<div class="byline">'.__('%s Locations', rl_tour_total_items($tour)).' | '.((tour('Credits')) ? __('Curated by %s', tour('Credits')) : __('Curated by %s', option('site_title'))).'</div>';?>
+                <?php echo '<div class="byline">'.__('%s Locations', rl_tour_total_items($tour)).' | '.((tour('Credits')) ? __('Created by %s', tour('Credits')) : __('Created by %s', option('site_title'))).'</div>';?>
             </div>
         </header>
 
-        <div class="max-content-width">
+        <!-- <div class="max-content-width">
             <div class="separator thin wide"></div>
             <aside id="social-actions" class="inner-padding-flush">
                 <?php echo rl_story_actions('transparent-on-light', $tourTitle, tour('id'));?>
             </aside>
-        </div>
+        </div> -->
         <div class="separator wide thin"></div>
 
         <section id="text" aria-label="<?php echo __('%s Description', rl_tour_label('singular'));?>">
@@ -71,7 +71,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                 endforeach; ?>
             </section>
 
-            <div class="separator center"></div>
+          
 
             <?php if ($ps = metadata('tour', 'Postscript Text')):?>
             <section id="tour-postscript" class="max-content-width inner-padding caption" aria-label="<?php echo __('%s Postscript', rl_tour_label('singular'));?>">
