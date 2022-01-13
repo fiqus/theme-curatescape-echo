@@ -322,7 +322,6 @@ body {
   font-feature-settings: "liga" 1, "pnum" 1, "kern" 1;
 }
 article {
-  background: var(--bg-article);
 }
 
 /* Fluid Type ============ */
