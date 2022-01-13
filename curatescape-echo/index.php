@@ -16,15 +16,16 @@ echo head(
             }
             echo rl_homepage_featured();
             echo rl_homepage_recent_random();
+            echo rl_homepage_tours();
             if(get_theme_option('homepage_map_placement') == 'middle'){
                 echo rl_homepage_map();
             }
-            echo rl_homepage_tours();
-            echo rl_homepage_tags();
+
+            // echo rl_homepage_tags();
             if(get_theme_option('homepage_map_placement') == 'bottom'){
                 echo rl_homepage_map();
             }
-            echo rl_homepage_projectmeta();
+            echo rl_homepage_about();
     }else{
        echo rl_homepage_stealthmode(); 
     }
