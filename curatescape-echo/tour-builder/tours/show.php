@@ -14,9 +14,19 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
     <article id="tour-content" class="tour show">
 
         <header id="tour-header">
-            <div class="max-content-width inner-padding">
-                <h1 class="tour-title title"><?php echo $tourTitle; ?></h1>
-                <?php echo '<div class="byline">'.__('%s Locations', rl_tour_total_items($tour)).' | '.((tour('Credits')) ? __('Created by %s', tour('Credits')) : __('Created by %s', option('site_title'))).'</div>';?>
+            <div class="max-content-width inner-padding tour-columns">
+                <div class="column">
+                    <h1 class="tour-title title"><?php echo $tourTitle; ?></h1>
+                    <?php echo '<div class="byline">'.__('%s Locations', rl_tour_total_items($tour)).' | '.((tour('Credits')) ? __('Created by %s', tour('Credits')) : __('Created by %s', option('site_title'))).'</div>';?>
+                    <section id="text" aria-label="<?php echo __('%s Description', rl_tour_label('singular'));?>">
+                        <div class="max-content-width">
+                            <?php echo htmlspecialchars_decode(nls2p(tour('Description'))); ?>
+                        </div>
+                    </section>
+                </div>
+                <div class="column">
+                    <h1>Column</h1>
+                </div>
             </div>
         </header>
 
@@ -26,17 +36,13 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                 <?php echo rl_story_actions('transparent-on-light', $tourTitle, tour('id'));?>
             </aside>
         </div> -->
-        <div class="separator wide thin"></div>
+        <!-- <div class="separator wide thin"></div> -->
 
-        <section id="text" aria-label="<?php echo __('%s Description', rl_tour_label('singular'));?>">
-            <div class="max-content-width inner-padding">
-                <?php echo htmlspecialchars_decode(nls2p(tour('Description'))); ?>
-            </div>
-        </section>
+        
 
         <div class="max-content-width inner-padding">
-            <div class="separator flush-top center"></div>
-            <section id="tour-items" class="browse" aria-label="<?php echo __('%s Locations', rl_tour_label('singular'));?>">
+            <!-- <div class="separator flush-top center"></div> -->
+            <section id="tour-items" class="browse-items" aria-label="<?php echo __('%s Locations', rl_tour_label('singular'));?>">
                 <?php $i=1;
                 foreach ($tour->getItems() as $tourItem):
                      if ($tourItem->public || current_user()):
@@ -53,7 +59,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                                 }
                                 $itemText .= '<br><a class="readmore" href="'.$url.'">'.__('View %s', rl_item_label('singular')).'</a> <span class="sep-bar">|</span> <a role="button" data-index="'.$i.'" data-id="'.$itemID.'" class="readmore showonmap" href="javascript:void(0)">'.__('Show on Map').'</a>';
                           ?>
-                <article class="item-result tour">
+                <article class="item-result has-image">
                     <a aria-label="<?php echo strip_tags(metadata($tourItem, array('Dublin Core', 'Title'))); ?>" class="tour-image single" style="background-image:url(<?php echo rl_get_first_image_src($tourItem, 'square_thumbnails');?>)" href="<?php echo $url;?>"></a>
                     <div class="separator thin flush-bottom flush-top"></div>
                     <div class="tour-inner">
@@ -80,12 +86,12 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
             <?php endif;?>
 
         </div>
-
+<!-- 
         <?php if (get_theme_option('comments_id')):?>
         <section id="comments-section">
             <?php echo rl_display_comments();?>
         </section>
-        <?php endif;?>
+        <?php endif;?> -->
 
         <?php echo multimap_markup(true, $tourTitle, __('Show %s Map', rl_tour_label()));?>
 
