@@ -25,7 +25,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                     </section>
                 </div>
                 <div class="column">
-                    <h1>Column</h1>
+                    <!-- <h1>Column</h1> -->
                     <div data-label="<?php echo htmlentities(strip_tags($map_label)); ?>">
                         <?php echo rl_story_map_multi($tour); ?>
                     </div>
@@ -44,7 +44,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
 
         
 
-        <div class="tour-content">
+        <div class="tour-content max-content-width">
             <!-- <div class="separator flush-top center"></div> -->
             <section id="tour-items" class="browse inner-padding" aria-label="<?php echo __('%s Locations', rl_tour_label('singular'));?>">
                 <?php echo tour_items($tour) ?>
