@@ -1718,7 +1718,7 @@ header.primary nav #nav-interactive a > i {
   text-decoration: none;
 }
 
-.featured-card-text p {
+.featured-card-text {
   display: -webkit-box;
   max-width: 50rem;
   -webkit-line-clamp: 4;
