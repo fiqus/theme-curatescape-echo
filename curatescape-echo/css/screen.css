@@ -338,9 +338,6 @@ article {
   }
 }
 
-.custom-link a{
-  color:#489AFA !important;
-}
 /* Typographic Scale (Minor Third) ============ */
 /* https://type-scale.com/ */
 
@@ -1305,6 +1302,7 @@ figcaption,
   color: var(--text-base);
 }
 .custom-link a{
+  font-family: 'Open Sans Semibold', sans-serif;
   color: #74B1F9 !important;
 }
 .message.warning {
@@ -1367,10 +1365,7 @@ hr {
 }
 .to-right{
   margin-left: auto;
-}
-
-.to-right{
-  margin-left: auto;
+  margin-right: 1.5rem;
 }
 
 /* Header Primary */
