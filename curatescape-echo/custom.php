@@ -1863,7 +1863,7 @@ function rl_homepage_tours($html=null, $num=3, $scope='featured')
     
     // output
     if ($tours) {
-      $section_header = '<div id="tours" class="custom-link">';
+      $section_header = '<div id="tours-home" class="custom-link">';
       $section_header .= '<h2 class="query-header-no-border">'.strtoupper($heading).'</h2>';
       $section_header .= '<a class="to-right custom-link" href="/tours/browse">Ver todos los recorridos</a>';
       $section_header .= '</div>';

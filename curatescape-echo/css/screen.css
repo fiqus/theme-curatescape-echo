@@ -1865,8 +1865,12 @@ header.primary nav #nav-interactive a > i {
     margin-right: 0;
   }
 }
+#tours-home{
+  display: flex;
+  margin: 0 -10px;
+  align-items: baseline;
+}
 #tours {
-  /* display: flex; */
   margin: 0 -10px;
   align-items: baseline;
 }
