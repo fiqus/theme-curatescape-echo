@@ -1623,7 +1623,7 @@ function rl_homepage_featured($num=4,$html=null,$index=1)
           }
           $index++;
         }
-      $html .= $primary.'<div class="secondary">'.$secondary.'</div>';
+      $html .= $primary;
       $html .= '</div>';
       return '<section id="home-featured" class="inner-padding browse">'.$html.'</section>';
     }else{
