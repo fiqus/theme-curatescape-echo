@@ -387,7 +387,7 @@ h2,
 font-size: 1.8rem;
 color:#5E5E5E;
 text-transform: uppercase;
-font-family: 'Open Sans';
+font-family: 'Open_Sans_Regular', sans-serif;
 font-style: normal;
 font-weight: normal;
 }
@@ -406,18 +406,16 @@ small,
 
 /* Custom Components */
 .query-header {
-  font-family: var(--font-ui);
-  margin-top: 1rem;
+  font-family: 'Open Sans Regular', sans-serif;
+  color: var(--titles);
+  font-size: 1.5rem;
 }
 .query-header-no-border {
-  font-family: var(--font-ui);
+  font-family: 'Open Sans Regular', sans-serif;
   margin-top: 1rem;
+  margin-left: 1.3rem;
   color: var(--titles);
-}
-.query-header-no-border {
-  font-family: var(--font-ui);
-  margin-top: 1rem;
-  color: var(--titles);
+  font-size: 1.5rem;
 }
 .title {
   color: var(--article-header-title);
@@ -1415,7 +1413,7 @@ header.primary nav #nav-desktop a,
 header.primary nav #nav-interactive a {
   margin-top: 0;
   align-self: center;
-  font-family: 'Open Sans Semibold';
+  font-family: 'Open Sans Semibold', sans-serif;
 }
 header.primary nav #nav-desktop a > i,
 header.primary nav #nav-interactive a > i {
@@ -1686,6 +1684,7 @@ header.primary nav #nav-interactive a > i {
   background: var(--link-text-on-dark);
 }
 .featured-card.featured-1 .title {
+  font-size: 2rem;
   color: #000000;
 }
 .featured-card.featured-1 .subtitle {
@@ -1973,7 +1972,7 @@ article header .title-card-image figcaption .file-description {
 }
 
 .title-card-subject {
-  font-family: 'Open_Sans_Regular', sans-serif;;
+  font-family: 'Open_Sans_Regular', sans-serif;
   padding-bottom: 0.25em;
   color: #8D8D8D;
 }
