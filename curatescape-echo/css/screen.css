@@ -1415,6 +1415,7 @@ header.primary nav #nav-desktop a,
 header.primary nav #nav-interactive a {
   margin-top: 0;
   align-self: center;
+  font-family: 'Open Sans Semibold';
 }
 header.primary nav #nav-desktop a > i,
 header.primary nav #nav-interactive a > i {
@@ -1960,8 +1961,19 @@ article header .title-card-image figcaption {
 article header .title-card-image figcaption .file-description {
   display: none;
 }
+
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url(../fonts/Google/Open_Sans/static/OpenSans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Semibold";
+  src: url(../fonts/Google/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf);
+}
+
 .title-card-subject {
-  font-family: var(--font-ui);
+  font-family: 'Open_Sans_Regular', sans-serif;;
   padding-bottom: 0.25em;
   color: #8D8D8D;
 }
