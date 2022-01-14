@@ -14,12 +14,12 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
     <article id="tour-content" class="tour show">
 
         <header id="tour-header">
-            <div class="max-content-width inner-padding tour-columns">
+            <div class=" inner-padding tour-columns">
                 <div class="column">
                     <h1 class="tour-title title"><?php echo $tourTitle; ?></h1>
                     <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? __('Created by %s', '<a>'.tour('Credits').'</a>') : __('Created by %s', option('site_title'))).'</div>';?>
                     <section id="text" aria-label="<?php echo __('%s Description', rl_tour_label('singular'));?>">
-                        <div class="max-content-width">
+                        <div class="">
                             <?php echo htmlspecialchars_decode(nls2p(tour('Description'))); ?>
                         </div>
                     </section>
@@ -44,7 +44,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
 
         
 
-        <div class="tour-content max-content-width">
+        <div class="tour-content ">
             <!-- <div class="separator flush-top center"></div> -->
             <section id="tour-items" class="browse inner-padding" aria-label="<?php echo __('%s Locations', rl_tour_label('singular'));?>">
                 <?php echo tour_items($tour) ?>
@@ -66,7 +66,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
         </section>
         <?php endif;?> -->
 
-        <!-- <?php echo multimap_markup(true, $tourTitle, __('Show %s Map', rl_tour_label()));?> -->
+        <?php echo multimap_markup(true, $tourTitle, __('Show %s Map', rl_tour_label()));?>
 
     </article>
 </div> <!-- end content -->
