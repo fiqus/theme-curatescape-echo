@@ -34,7 +34,8 @@ if (($tag || $tags) && !($query)) {
     $maptype='queryresults';
 } elseif ($query) {
     // $title = __('Search Results for "%s"', $query);
-    $title = __('%1s labelled with "%2s"', rl_item_label('plural'), $query);
+    $title = __(rl_item_label('plural'));
+    $subtitle = __('Labelled with "%2s"', $query);
     $bodyclass .=' queryresults';
     $maptype='queryresults';
 } elseif ($other) {
@@ -58,6 +59,9 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
         // $title .= ($total_results ? ': <span class="item-number">'.$total_results.'</span>' : '');
         echo $title;
         ?></h2>
+        <?php if ($subtitle) {?>
+        <h5><?php echo $subtitle;?></h5>
+        <?php } ?>
             <!-- <nav class="secondary-nav" id="item-browse">
                 <?php echo rl_item_browse_subnav();?>
             </nav> -->
