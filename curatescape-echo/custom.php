@@ -1724,9 +1724,12 @@ function tour_items($tour){
           $item_image=null;
       }
       $html .= '<article class="item-result '.($hasImage ? 'has-image' : 'no-image').'">';
-      
-      $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
+
+      $html .= '<a href="'.$url.'" title="'.metadata($item, array('Dublin Core','Title')).'" class="image-container">';
+      $html .= '<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'">';
+      $html .= '</span>';
       $html .= '</a>';
+      // $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
       $html .= '<div class="result-details">';
       $html .= '<a class="permalink" href="'.$url.'">';
       $html .= '<h3 class="title">'.strip_tags(metadata($item, array('Dublin Core', 'Title'))).'</h3>';
@@ -1912,6 +1915,25 @@ function rl_homepage_tours($html=null, $num=3, $scope='featured')
     return null;
   }
 }
+
+// START TOUR
+
+function start_tour($tour){
+  // foreach ($tour->getItems() as $item):{
+  $items = $tour->getItems();
+  reset($items);
+
+  $itemID=current($items)->id;
+  $url=url('/items/show/'.$itemID.'?tour='.tour('id').'&index='.($i-1).'');
+  $html .= '<a href="'.$url.'">';
+  $html .= '<button class="featured-card-button">'.strtoupper("Iniciar recorrido").'</button>';
+  
+  $html .= '</a>';
+  return $html;
+
+
+}
+
 
 // return story navigation and (when applicable) tour navigation
 function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $has_location=false, $tour=false, $tour_index=false)
