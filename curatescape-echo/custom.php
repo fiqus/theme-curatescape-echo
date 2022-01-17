@@ -1705,6 +1705,10 @@ function tour_items($tour){
   foreach ($tour->getItems() as $item):{
       set_current_record('item', $item);
       $tags=tag_string(get_current_record('item'), url('items/browse'));
+
+      $itemID=$item->id;
+      $url=url('/items/show/'.$itemID.'?tour='.tour('id').'&index='.($i-1).'');
+      
       $hasImage=metadata($item, 'has thumbnail');
       if ($item_image = rl_get_first_image_src($item)) {
           $size=getimagesize($item_image);
@@ -1722,7 +1726,14 @@ function tour_items($tour){
       $html .= '<article class="item-result '.($hasImage ? 'has-image' : 'no-image').'">';
       $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
       $html .= '<div class="result-details">';
-      $html .= rl_the_title_expanded($item);
+
+
+      // $html .= rl_the_title_expanded($item);
+      $html .= '<a class="permalink" href="'.$url.'">';
+      $html .= '<h3 class="title">'.strip_tags(metadata($item, array('Dublin Core', 'Title'))).'</h3>';
+      $html .= '</a>';
+
+      
       $html .= rl_the_byline($item, false);
       $html .= '</div>';
       $html .= '</article>';

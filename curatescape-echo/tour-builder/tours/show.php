@@ -50,6 +50,51 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                 <?php echo tour_items($tour) ?>
             </section>
 
+
+
+            <!-- PREV TOUR STORIES -->
+
+<!-- 
+            <section id="tour-items" class="browse" aria-label="<?php echo __('%s Locations', rl_tour_label('singular'));?>">
+                <?php $i=1;
+                foreach ($tour->getItems() as $tourItem):
+                     if ($tourItem->public || current_user()):
+                          set_current_record('item', $tourItem);
+                                $itemID=$tourItem->id;
+                                $url=url('/items/show/'.$itemID.'?tour='.tour('id').'&index='.($i-1).'');
+                                // Show the entire lede if it's not too short (<150) or too long (>400)
+                                if (($itemLede = strip_tags(rl_the_lede($tourItem))) && (strlen($itemLede) > 150 && strlen($itemLede) <= 400)) {
+                                    $itemText = $itemLede;
+                                } elseif (($itemLede = strip_tags(rl_the_lede($tourItem))) && (strlen($itemLede) > 400)) {
+                                    $itemText = snippet($itemLede, 0, 400, '&hellip;');
+                                } else {
+                                    $itemText = snippet(rl_the_text($tourItem), 0, 300, '&hellip;');
+                                }
+                                $itemText .= '<br><a class="readmore" href="'.$url.'">'.__('View %s', rl_item_label('singular')).'</a> <span class="sep-bar">|</span> <a role="button" data-index="'.$i.'" data-id="'.$itemID.'" class="readmore showonmap" href="javascript:void(0)">'.__('Show on Map').'</a>';
+                          ?>
+                <article class="item-result tour">
+                    <a aria-label="<?php echo strip_tags(metadata($tourItem, array('Dublin Core', 'Title'))); ?>" class="tour-image single" style="background-image:url(<?php echo rl_get_first_image_src($tourItem, 'square_thumbnails');?>)" href="<?php echo $url;?>"></a>
+                    <div class="separator thin flush-bottom flush-top"></div>
+                    <div class="tour-inner">
+                        <a class="permalink" href="<?php echo $url; ?>">
+                            <h2 class="h3 title"><?php echo strip_tags(metadata($tourItem, array('Dublin Core', 'Title'))); ?></h2>
+                            <?php echo rl_the_subtitle($tourItem);?>
+                        </a>
+                        <p class="item-description tour-snip">
+                            <?php echo $itemText; ?>
+                        </p>
+                    </div>
+                </article>
+                <?php $i++; $item_image=null;
+                     endif;
+                endforeach; ?>
+            </section> -->
+
+
+
+<!-- END PREV TOUR STORIES -->
+
+
           
 
             <!-- <?php if ($ps = metadata('tour', 'Postscript Text')):?>
