@@ -23,6 +23,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                             <?php echo htmlspecialchars_decode(nls2p(tour('Description'))); ?>
                         </div>
                     </section>
+                    <button class="featured-card-button"><?php echo strtoupper("Iniciar recorrido"); ?> </button>
                 </div>
                 <div class="column">
                     <!-- <h1>Column</h1> -->
@@ -54,7 +55,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
 
             <!-- PREV TOUR STORIES -->
 
-<!-- 
+
             <section id="tour-items" class="browse" aria-label="<?php echo __('%s Locations', rl_tour_label('singular'));?>">
                 <?php $i=1;
                 foreach ($tour->getItems() as $tourItem):
@@ -88,7 +89,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                 <?php $i++; $item_image=null;
                      endif;
                 endforeach; ?>
-            </section> -->
+            </section>
 
 
 

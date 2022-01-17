@@ -1724,16 +1724,13 @@ function tour_items($tour){
           $item_image=null;
       }
       $html .= '<article class="item-result '.($hasImage ? 'has-image' : 'no-image').'">';
+      
       $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
+      $html .= '</a>';
       $html .= '<div class="result-details">';
-
-
-      // $html .= rl_the_title_expanded($item);
       $html .= '<a class="permalink" href="'.$url.'">';
       $html .= '<h3 class="title">'.strip_tags(metadata($item, array('Dublin Core', 'Title'))).'</h3>';
       $html .= '</a>';
-
-      
       $html .= rl_the_byline($item, false);
       $html .= '</div>';
       $html .= '</article>';
