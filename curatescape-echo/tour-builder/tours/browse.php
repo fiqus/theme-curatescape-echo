@@ -3,7 +3,8 @@ $label=rl_tour_label('plural');
 if (isset($_GET['featured']) && $_GET['featured'] == 1) {
     $title = __('Featured %1$s: %2$s', $label, total_tours());
 } else {
-    $title = __('All %1$s: %2$s', $label, total_tours());
+    // $title = __('All %1$s: %2$s', $label, total_tours());
+    $title = __('%1$s', $label);
 }
 echo head(
     array(
@@ -16,13 +17,13 @@ echo head(
 <div id="content" role="main">
     <article class="browse tour">
         <div class="browse-header">
-            <h2 class="query-header"><?php echo $title;?></h2>
-            <nav class="tours-nav navigation secondary-nav">
+            <h2 class="query-header-no-border"><?php echo $title;?></h2>
+            <!-- <nav class="tours-nav navigation secondary-nav">
                 <?php echo rl_tour_browse_subnav(rl_tour_label('plural'), null); ?>
-            </nav>
-            <div id="helper-links">
+            </nav> -->
+            <!-- <div id="helper-links">
                 <span class="helper-label"><?php echo rl_icon('information-circle').'&nbsp;'.(get_theme_option('tour_info') ? strip_tags(get_theme_option('tour_info'),'<a>') :  __("%s are self-guided.", rl_tour_label('plural'))); ?></span>
-            </div>
+            </div> -->
         </div>
         <div id="primary" class="browse">
             <section id="results" aria-label="<?php echo rl_tour_label('plural');?>">
@@ -45,11 +46,13 @@ echo head(
                                 }
                             }
                             $html .= '<article class="item-result tour">';
-                            $html .= '<a aria-label="'.tour('title').'" class="tour-image '.(count($bg) < 4 ? 'single' : 'multi').'" style="background-image:'.implode(',', $bg).'" href="'.WEB_ROOT.'/tours/show/'.tour('id').'"></a><div class="separator thin flush-bottom flush-top"></div>';
-                            $html .= '<div class="tour-inner">';
-                            $html .= '<a class="permalink" href="' . WEB_ROOT . '/tours/show/'. tour('id').'"><h3 class="title">' . tour('title').'</h3></a>'.
-                                '<span class="byline">'.rl_icon('compass').__('%s Locations', rl_tour_total_items($tour)).'</span>';
-                            $html .= '<p class="tour-snip">'.snippet(strip_tags(htmlspecialchars_decode(tour('description'))), 0, 200).'<br><a class="readmore" href="'.WEB_ROOT . '/tours/show/'. tour('id').'">'.__('View %s', rl_tour_label('singular')).'</a></p>';
+                            // $html .= '<a aria-label="'.tour('title').'" class="tour-image '.(count($bg) < 4 ? 'single' : 'multi').'" style="background-image:'.implode(',', $bg).'" href="'.WEB_ROOT.'/tours/show/'.tour('id').'"></a><div class="separator thin flush-bottom flush-top"></div>';
+                            $html .= '<a aria-label="'.tour('title').'" class="tour-image '.(count($bg) < 4 ? 'single' : 'multi').'" style="background-image:'.implode(',', $bg).'" href="'.WEB_ROOT.'/tours/show/'.tour('id').'"></a>';
+                            $html .= '<div class="tour-inner custom-link">';
+                            $html .= '<a class="permalink" href="' . WEB_ROOT . '/tours/show/'. tour('id').'"><h3 class="title">' . tour('title').'</h3></a>';
+                                // '<span class="byline">'.rl_icon('compass').__('%s Locations', rl_tour_total_items($tour)).'</span>';
+                            // $html .= '<p class="tour-snip">'.snippet(strip_tags(htmlspecialchars_decode(tour('description'))), 0, 200).'<br><a class="readmore" href="'.WEB_ROOT . '/tours/show/'. tour('id').'">'.__('View %s', rl_tour_label('singular')).'</a></p>';
+                            $html .= '<a class="readmore" href="'.WEB_ROOT . '/tours/show/'. tour('id').'">'.__('View %s', rl_tour_label('singular')).'</a></p>';
                             $html .= '</div>';
                             $html .= '</article>';
                         }
