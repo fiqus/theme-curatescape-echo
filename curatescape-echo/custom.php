@@ -380,9 +380,9 @@ function rl_theme_css($media='all')
 function rl_item_label($which=null)
 {
     if ($which=='singular') {
-        return ($singular=get_theme_option('item_label_singular')) ? $singular : __('Story');
+        return ($singular=get_theme_option('item_label_singular')) ? $singular : 'Artículo';
     } elseif ($which=='plural') {
-        return ($plural=get_theme_option('item_label_plural')) ? $plural : __('Stories');
+        return ($plural=get_theme_option('item_label_plural')) ? $plural : 'Artículos';
     } else {
         return __('Story');
     }
@@ -394,9 +394,9 @@ function rl_item_label($which=null)
 function rl_tour_label($which=null)
 {
     if ($which=='singular') {
-        return ($singular=get_theme_option('tour_label_singular')) ? $singular : __('Tour');
+        return ($singular=get_theme_option('tour_label_singular')) ? $singular : 'Recorrido';
     } elseif ($which=='plural') {
-        return ($plural=get_theme_option('tour_label_plural')) ? $plural : __('Tours');
+        return ($plural=get_theme_option('tour_label_plural')) ? $plural : 'Recorridos';
     } else {
         return __('Tour');
     }
@@ -626,7 +626,7 @@ function rl_homepage_map($ishome=true)
     $label_text="All items: ";
     $zoom=(get_option('geolocation_default_zoom_level')) ? get_option('geolocation_default_zoom_level') : 12; ?>
     <section id="home-map" class="inner-padding browse">
-      <h2 class="query-header"><?php echo __('%s Map',rl_item_label());?></h2>
+      <h2 class="query-header">Mapa</h2>
       <div id="home-map-container" data-label="<?php echo $label_text.$items_quantity ?>">
         <figure id="multi-map" data-json-source="/items/browse?output=mobile-json" data-lat="<?php echo $pluginlat; ?>" data-lon="<?php echo $pluginlon; ?>" data-zoom="<?php echo $zoom; ?>" data-default-layer="<?php echo get_theme_option('map_style') ? get_theme_option('map_style') : 'CARTO_VOYAGER'; ?>" data-color="<?php echo get_theme_option('marker_color'); ?>" data-featured-color="<?php echo get_theme_option('featured_marker_color'); ?>" data-featured-star="<?php echo get_theme_option('featured_marker_star'); ?>" data-root-url="<?php echo WEB_ROOT; ?>" data-maki-js="<?php echo src('maki/maki.min.js', 'javascripts'); ?>" data-providers="<?php echo src('providers.js', 'javascripts'); ?>" data-leaflet-js="<?php echo src('theme-leaflet/leaflet.js', 'javascripts'); ?>" data-leaflet-css="<?php echo src('theme-leaflet/leaflet.css', 'javascripts'); ?>" data-cluster-css="<?php echo src('leaflet.markercluster/leaflet.markercluster.min.css', 'javascripts'); ?>" data-cluster-js="<?php echo src('leaflet.markercluster/leaflet.markercluster.js', 'javascripts'); ?>" data-cluster="<?php echo $tour && get_theme_option('tour_clustering') ? '1' : get_theme_option('clustering'); ?>" data-fitbounds-label="<?php echo __('Zoom to fit all locations'); ?>">
              <div class="curatescape-map">
@@ -1643,7 +1643,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
       case 'recent':
         // $items=get_records('Item', array('featured'=>false,'hasImage'=>true,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
         $items=get_records('Item', array('featured'=>false,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
-        $param=__("Recent");
+        $param='Recientes';
         break;
       case 'random':
         $items=get_records('Item', array('featured'=>false,'hasImage'=>true,'sort_field' => 'random', 'sort_dir' => 'd','public'=>true), $num);;
@@ -1652,7 +1652,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
     }
     if(count($items)){
       $section_header = '<div id="recent-articles" class="custom-link">';
-      $section_header .= '<h2 class="query-header-no-border">'.strtoupper($param).' '.strtoupper(rl_item_label('plural')).'</h2>';
+      $section_header .= '<h2 class="query-header-no-border">'.strtoupper(rl_item_label('plural')).' '.strtoupper($param).'</h2>';
       $section_header .= '<a class="to-right custom-link" href="/items/browse">Ver todos los artículos</a>';
       $section_header .= '</div>';
       $html = $section_header;
