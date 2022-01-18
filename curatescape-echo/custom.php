@@ -1698,7 +1698,8 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
 */ 
 function tour_items($tour){
   $section_header = '<div id="recent-articles" class="custom-link">';
-  $section_header .= '<h2 class="query-header-no-border">'.strtoupper('Tour Stories').'</h2>';
+  // $section_header .= '<h2 class="query-header-no-border">'.strtoupper('Tour Stories').'</h2>';
+  $section_header .= '<h2 class="query-header-no-border">'.strtoupper('Locaciones por recorrido').'</h2>';
   $section_header .= '</div>';
   $html = $section_header;
   $html .= '<div class="browse-items">';
