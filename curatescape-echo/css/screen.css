@@ -1192,7 +1192,7 @@ figcaption,
   min-height: 45vh;
 }
 .max-content-width {
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 .inner-padding {
@@ -2028,7 +2028,7 @@ aside#social-actions .button {
 /* Story Images */
 figure.image-figure,
 .gallery-image .border{
-  max-width: 1408px;
+  max-width: 1800px;
   
   display:inline-block;
 }
@@ -2530,7 +2530,9 @@ li.current ~ li.current .icon-capsule .icon {
     color: var(--light-primary);
   }
 }
-
+#text-section p{
+  max-width: 70em;
+}
 /* Metadata */
 #metadata-section {
   margin-bottom: 4rem;
