@@ -1657,12 +1657,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
     }
     if(count($items)){
       $section_header = '<div id="recent-articles" class="custom-link">';
-<<<<<<< HEAD
-      // $section_header .= '<h2 class="query-header-no-border">'.strtoupper($param).' '.strtoupper(rl_item_label('plural')).'</h2>';
-      $section_header .= '<h2 class="query-header-no-border">'.strtoupper("historias recientes").'</h2>';
-=======
       $section_header .= '<h2 class="query-header-no-border">'.strtoupper(rl_item_label('plural')).' '.strtoupper($param).'</h2>';
->>>>>>> master
       $section_header .= '<a class="to-right custom-link" href="/items/browse">Ver todos los artículos</a>';
       $section_header .= '</div>';
       $html = $section_header;
