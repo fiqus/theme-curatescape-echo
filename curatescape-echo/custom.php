@@ -1942,7 +1942,8 @@ function start_tour($tour){
 // return story navigation and (when applicable) tour navigation
 function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $has_location=false, $tour=false, $tour_index=false)
 {
-    $totop = '<li class="foot"><a title="'.__('Return to Top').'" class="icon-capsule no-bg" href="#site-content">'.'<span class="label">'.__('Up').'</span>'.rl_icon("arrow-up").'</a></li>';
+    // $totop = '<li class="foot"><a title="'.__('Return to Top').'" class="icon-capsule no-bg" href="#site-content">'.'<span class="label">'.__('Up').'</span>'.rl_icon("arrow-up").'</a></li>';
+    $totop = '<li class="foot"><a title="'.__('Return to Top').'" class="icon-capsule no-bg" href="#site-content">'.'<span class="label">'.'Arriba'.'</span>'.rl_icon("arrow-up").'</a></li>';
 
     // Media List HTML
     $media_list = null;
