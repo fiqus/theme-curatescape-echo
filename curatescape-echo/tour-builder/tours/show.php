@@ -17,7 +17,8 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
             <div class=" inner-padding tour-columns">
                 <div class="column">
                     <h1 class="tour-title title"><?php echo $tourTitle; ?></h1>
-                    <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? __('Created by %s', '<a>'.tour('Credits').'</a>') : __('Created by %s', option('site_title'))).'</div>';?>
+                    <!-- <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? __('Created by %s', '<a>'.tour('Credits').'</a>') : __('Created by %s', option('site_title'))).'</div>';?> -->
+                    <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? __('Creado por %s', '<a>'.tour('Credits').'</a>') : __('Created by %s', option('site_title'))).'</div>';?>
                     <section id="text" aria-label="<?php echo __('%s Description', rl_tour_label('singular'));?>">
                         <div class="">
                             <?php echo htmlspecialchars_decode(nls2p(tour('Description'))); ?>
