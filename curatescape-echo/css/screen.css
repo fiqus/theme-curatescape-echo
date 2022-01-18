@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url(../fonts/Google/Open_Sans/static/OpenSans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Semibold";
+  src: url(../fonts/Google/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Libre Baskerville Regular";
+  src: url(../fonts/Google/Libre_Baskerville/LibreBaskerville-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Libre Baskerville Bold";
+  src: url(../fonts/Google/Libre_Baskerville/LibreBaskerville-Bold.ttf);
+}
+
 :root {
   /* Font Stacks */
   --font-1: "Bitter", serif;
@@ -433,7 +453,7 @@ small,
 .search-sub {
   font-size: 0.833em;
   color: var(--text-caption);
-  font-family: var(--font-ui);
+  font-family: 'Open Sans Semibold', sans-serif;
   letter-spacing: 0.015em;
 }
 header,
@@ -551,6 +571,8 @@ p {
 }
 .home a .title,
 .browse a .title {
+  font-family: 'Libre Baskerville Regular', serif;
+  font-size: 1.2rem;
   margin: 0 0 0.15em;
 }
 .home .byline a,
@@ -1658,7 +1680,7 @@ header.primary nav #nav-interactive a > i {
   opacity: 0.9;
 }
 .featured-card.featured-1 .featured-card-content {
-  padding: 2em 0;
+  padding-top: 2em;
 }
 .featured-card.featured-1 .featured-card-inner {
   background-color: white;
@@ -1679,7 +1701,8 @@ header.primary nav #nav-interactive a > i {
   background: var(--link-text-on-dark);
 }
 .featured-card.featured-1 .title {
-  font-size: 2rem;
+  font-family: 'Libre Baskerville Bold', serif;
+  font-size: 1.5rem;
   color: #000000;
 }
 .featured-card.featured-1 .subtitle {
@@ -1707,6 +1730,10 @@ header.primary nav #nav-interactive a > i {
 .featured-card-button {
   background-color: #489AFA; 
   color: white;
+  margin-top: 1.4rem;
+  margin-bottom: 1.3rem;
+  border-radius: 5rem;
+  font-family: 'Open Sans Semibold', sans-serif;
 }
 
 .featured-card-author a {
@@ -1716,11 +1743,15 @@ header.primary nav #nav-interactive a > i {
 }
 
 .featured-card-text {
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 0.8rem;
+  line-height: normal;
   display: -webkit-box;
   max-width: 50rem;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-top: 0.5rem;
 }
 
 .browse .featured-card-image {
@@ -1853,7 +1884,9 @@ header.primary nav #nav-interactive a > i {
   align-items: baseline;
 }
 .about-text{
+  font-family: 'Libre Baskerville Regular', serif;
   margin-right: 3em;
+  color: #444444;
 }
 
 .home-project-meta {
@@ -1954,16 +1987,6 @@ article header .title-card-image figcaption {
 }
 article header .title-card-image figcaption .file-description {
   display: none;
-}
-
-@font-face {
-  font-family: "Open Sans Regular";
-  src: url(../fonts/Google/Open_Sans/static/OpenSans/OpenSans-Regular.ttf);
-}
-
-@font-face {
-  font-family: "Open Sans Semibold";
-  src: url(../fonts/Google/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf);
 }
 
 .title-card-subject {
