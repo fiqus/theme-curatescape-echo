@@ -626,12 +626,7 @@ function rl_homepage_map($ishome=true)
     $label_text="All items: ";
     $zoom=(get_option('geolocation_default_zoom_level')) ? get_option('geolocation_default_zoom_level') : 12; ?>
     <section id="home-map" class="inner-padding browse">
-<<<<<<< HEAD
-      <!-- <h2 class="query-header"><?php echo __('%s Map',rl_item_label());?></h2> -->
-      <h2 class="query-header"><?php echo strtoupper('artículos por localización');?></h2>
-=======
       <h2 class="query-header">Mapa</h2>
->>>>>>> master
       <div id="home-map-container" data-label="<?php echo $label_text.$items_quantity ?>">
         <figure id="multi-map" data-json-source="/items/browse?output=mobile-json" data-lat="<?php echo $pluginlat; ?>" data-lon="<?php echo $pluginlon; ?>" data-zoom="<?php echo $zoom; ?>" data-default-layer="<?php echo get_theme_option('map_style') ? get_theme_option('map_style') : 'CARTO_VOYAGER'; ?>" data-color="<?php echo get_theme_option('marker_color'); ?>" data-featured-color="<?php echo get_theme_option('featured_marker_color'); ?>" data-featured-star="<?php echo get_theme_option('featured_marker_star'); ?>" data-root-url="<?php echo WEB_ROOT; ?>" data-maki-js="<?php echo src('maki/maki.min.js', 'javascripts'); ?>" data-providers="<?php echo src('providers.js', 'javascripts'); ?>" data-leaflet-js="<?php echo src('theme-leaflet/leaflet.js', 'javascripts'); ?>" data-leaflet-css="<?php echo src('theme-leaflet/leaflet.css', 'javascripts'); ?>" data-cluster-css="<?php echo src('leaflet.markercluster/leaflet.markercluster.min.css', 'javascripts'); ?>" data-cluster-js="<?php echo src('leaflet.markercluster/leaflet.markercluster.js', 'javascripts'); ?>" data-cluster="<?php echo $tour && get_theme_option('tour_clustering') ? '1' : get_theme_option('clustering'); ?>" data-fitbounds-label="<?php echo __('Zoom to fit all locations'); ?>">
              <div class="curatescape-map">
@@ -1657,12 +1652,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
     }
     if(count($items)){
       $section_header = '<div id="recent-articles" class="custom-link">';
-<<<<<<< HEAD
-      // $section_header .= '<h2 class="query-header-no-border">'.strtoupper($param).' '.strtoupper(rl_item_label('plural')).'</h2>';
-      $section_header .= '<h2 class="query-header-no-border">'.strtoupper("historias recientes").'</h2>';
-=======
       $section_header .= '<h2 class="query-header-no-border">'.strtoupper(rl_item_label('plural')).' '.strtoupper($param).'</h2>';
->>>>>>> master
       $section_header .= '<a class="to-right custom-link" href="/items/browse">Ver todos los artículos</a>';
       $section_header .= '</div>';
       $html = $section_header;
