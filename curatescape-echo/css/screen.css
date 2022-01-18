@@ -1255,6 +1255,9 @@ figcaption,
   }
 }
 
+.item-gallery-min-width{
+  min-width: 750px;
+}
 /* Admin Bar */
 #admin-bar {
   background: #222;
