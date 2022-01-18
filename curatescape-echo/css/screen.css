@@ -3125,7 +3125,7 @@ ul.pagination .button {
 .item-result.tour .tour-image {
   width: var(--tour-image-size);
   height: var(--tour-image-size);
-  /* background-size: 250px; */
+  background-size: 100%;
   background-repeat: no-repeat;
   /* background-position: -10px -10px, -10px 90px, 90px -10px, 90px 90px; */
   /* background-color: var(--deco-color); */
