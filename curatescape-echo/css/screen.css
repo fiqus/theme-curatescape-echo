@@ -1238,6 +1238,19 @@ figcaption,
   min-width: 10em;
   padding-left: 1em;
 }
+.tour-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+}
+.tour-content{
+  background-color: var(--bg-body);
+}
+.tour-columns .column:first-child {
+  min-width: 10em;
+  padding-left: 1em;
+}
 @media all and (max-width: 1000px) {
   .story-columns .column:first-child {
     min-width: 3.5em;
@@ -1259,6 +1272,9 @@ figcaption,
   }
 }
 
+.item-gallery-min-width{
+  min-width: 750px;
+}
 /* Admin Bar */
 #admin-bar {
   background: #222;
@@ -1326,7 +1342,7 @@ figcaption,
 .custom-link a{
   font-family: 'Open Sans Semibold', sans-serif;
   color: #74B1F9 !important;
-}
+} */
 .message.warning {
   background: var(--message-warning);
 }
@@ -1840,7 +1856,7 @@ header.primary nav #nav-interactive a > i {
 
 #home-recent-random.browse .browse-items {
   margin: 0;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 @media all and (max-width: 1100px) and (min-width: 700px) {
   #home-recent-random article:first-child {
@@ -1878,8 +1894,12 @@ header.primary nav #nav-interactive a > i {
     margin-right: 0;
   }
 }
-#tours {
+#tours-home{
   display: flex;
+  margin: 0 -10px;
+  align-items: baseline;
+}
+#tours {
   margin: 0 -10px;
   align-items: baseline;
 }
@@ -2915,6 +2935,7 @@ ul.pagination .button {
   margin-left: 2em;
   margin-bottom: -1em;
   flex-grow: 1;
+  background-color: var(--bg-body);
 }
 .browse .result-details.left-aligned {
   margin-left: 0 !important;
@@ -3006,7 +3027,7 @@ ul.pagination .button {
 .browse .item-result {
   width: 31.333%;
   align-self: start;
-  padding: 1em 0;
+  /* padding: 1em 0; */
   /* border-bottom: var(--deco-border); */
   margin-bottom: 2rem;
   display: flex;
@@ -3212,7 +3233,7 @@ ul.pagination .button {
   margin: 0 auto 1rem;
 }
 #tours.show .browse .item-result {
-  width: 100%;
+  width: 30%;
 }
 #tour-header {
   text-align: center;
@@ -3224,7 +3245,9 @@ ul.pagination .button {
   margin: 0 auto;
   text-align: center;
 }
-
+/* #tour-items{
+  display: flex !important;
+} */
 @media all and (max-width: 800px) {
   .item-result.tour {
     flex-direction: column;
