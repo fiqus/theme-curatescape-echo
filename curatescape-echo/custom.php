@@ -1705,7 +1705,7 @@ function tour_items($tour){
   foreach ($tour->getItems() as $item):{
       set_current_record('item', $item);
       $tags=tag_string(get_current_record('item'), url('items/browse'));
-      $i = 0;
+
       $itemID=$item->id;
       $url=url('/items/show/'.$itemID.'?tour='.tour('id').'&index='.($i).'');
       
@@ -1925,7 +1925,7 @@ function start_tour($tour){
   reset($items);
 
   $itemID=current($items)->id;
-  $url=url('/items/show/'.$itemID.'?tour='.tour('id').'&index='.($i-1).'');
+  $url=url('/items/show/'.$itemID.'?tour='.tour('id').'&index='.($i).'');
   $html .= '<a href="'.$url.'">';
   $html .= '<button class="featured-card-button">'.strtoupper("Iniciar recorrido").'</button>';
   
