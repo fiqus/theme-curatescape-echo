@@ -1705,9 +1705,9 @@ function tour_items($tour){
   foreach ($tour->getItems() as $item):{
       set_current_record('item', $item);
       $tags=tag_string(get_current_record('item'), url('items/browse'));
-
+      $i = 0;
       $itemID=$item->id;
-      $url=url('/items/show/'.$itemID.'?tour='.tour('id').'&index='.($i-1).'');
+      $url=url('/items/show/'.$itemID.'?tour='.tour('id').'&index='.($i).'');
       
       $hasImage=metadata($item, 'has thumbnail');
       if ($item_image = rl_get_first_image_src($item)) {
