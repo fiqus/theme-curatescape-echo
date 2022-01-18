@@ -1898,18 +1898,17 @@ header.primary nav #nav-interactive a > i {
 }
 #home-about-main,
 #home-cta {
-  flex-grow: 1;
-  flex-shrink: 1;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 90%;
+  margin-right: 5rem;
 }
 
 #home-about-main .button,
 #home-cta .button {
   margin-bottom: 1rem;
+}
+
+#about-title {
+  font-family: 'Libre Baskerville Bold', serif;
 }
 
 .home-project-meta h3 {
