@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url(../fonts/Google/Open_Sans/static/OpenSans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans Semibold";
+  src: url(../fonts/Google/Open_Sans/static/OpenSans/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Libre Baskerville Regular";
+  src: url(../fonts/Google/Libre_Baskerville/LibreBaskerville-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Libre Baskerville Bold";
+  src: url(../fonts/Google/Libre_Baskerville/LibreBaskerville-Bold.ttf);
+}
+
 :root {
   /* Font Stacks */
   --font-1: "Bitter", serif;
@@ -338,9 +358,6 @@ article {
   }
 }
 
-.custom-link a{
-  color:#489AFA !important;
-}
 /* Typographic Scale (Minor Third) ============ */
 /* https://type-scale.com/ */
 
@@ -387,7 +404,7 @@ h2,
 font-size: 1.8rem;
 color:#5E5E5E;
 text-transform: uppercase;
-font-family: 'Open Sans';
+font-family: 'Open_Sans_Regular', sans-serif;
 font-style: normal;
 font-weight: normal;
 }
@@ -406,18 +423,16 @@ small,
 
 /* Custom Components */
 .query-header {
-  font-family: var(--font-ui);
-  margin-top: 1rem;
+  font-family: 'Open Sans Regular', sans-serif;
+  color: var(--titles);
+  font-size: 1.5rem;
 }
 .query-header-no-border {
-  font-family: var(--font-ui);
+  font-family: 'Open Sans Regular', sans-serif;
   margin-top: 1rem;
+  margin-left: 1.3rem;
   color: var(--titles);
-}
-.query-header-no-border {
-  font-family: var(--font-ui);
-  margin-top: 1rem;
-  color: var(--titles);
+  font-size: 1.5rem;
 }
 .title {
   color: var(--article-header-title);
@@ -438,7 +453,7 @@ small,
 .search-sub {
   font-size: 0.833em;
   color: var(--text-caption);
-  font-family: var(--font-ui);
+  font-family: 'Open Sans Semibold', sans-serif;
   letter-spacing: 0.015em;
 }
 header,
@@ -556,6 +571,8 @@ p {
 }
 .home a .title,
 .browse a .title {
+  font-family: 'Libre Baskerville Regular', serif;
+  font-size: 1.2rem;
   margin: 0 0 0.15em;
 }
 .home .byline a,
@@ -1307,6 +1324,7 @@ figcaption,
   color: var(--text-base);
 }
 .custom-link a{
+  font-family: 'Open Sans Semibold', sans-serif;
   color: #74B1F9 !important;
 }
 .message.warning {
@@ -1369,10 +1387,7 @@ hr {
 }
 .to-right{
   margin-left: auto;
-}
-
-.to-right{
-  margin-left: auto;
+  margin-right: 1.5rem;
 }
 
 /* Header Primary */
@@ -1415,6 +1430,7 @@ header.primary nav #nav-desktop a,
 header.primary nav #nav-interactive a {
   margin-top: 0;
   align-self: center;
+  font-family: 'Open Sans Semibold', sans-serif;
 }
 header.primary nav #nav-desktop a > i,
 header.primary nav #nav-interactive a > i {
@@ -1664,7 +1680,7 @@ header.primary nav #nav-interactive a > i {
   opacity: 0.9;
 }
 .featured-card.featured-1 .featured-card-content {
-  padding: 2em 0;
+  padding-top: 2em;
 }
 .featured-card.featured-1 .featured-card-inner {
   background-color: white;
@@ -1685,6 +1701,8 @@ header.primary nav #nav-interactive a > i {
   background: var(--link-text-on-dark);
 }
 .featured-card.featured-1 .title {
+  font-family: 'Libre Baskerville Bold', serif;
+  font-size: 1.5rem;
   color: #000000;
 }
 .featured-card.featured-1 .subtitle {
@@ -1712,6 +1730,10 @@ header.primary nav #nav-interactive a > i {
 .featured-card-button {
   background-color: #489AFA; 
   color: white;
+  margin-top: 1.4rem;
+  margin-bottom: 1.3rem;
+  border-radius: 5rem;
+  font-family: 'Open Sans Semibold', sans-serif;
 }
 
 .featured-card-author a {
@@ -1721,11 +1743,15 @@ header.primary nav #nav-interactive a > i {
 }
 
 .featured-card-text {
+  font-family: 'Open Sans Regular', sans-serif;
+  font-size: 0.8rem;
+  line-height: normal;
   display: -webkit-box;
   max-width: 50rem;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-top: 0.5rem;
 }
 
 .browse .featured-card-image {
@@ -1858,7 +1884,9 @@ header.primary nav #nav-interactive a > i {
   align-items: baseline;
 }
 .about-text{
+  font-family: 'Libre Baskerville Regular', serif;
   margin-right: 3em;
+  color: #444444;
 }
 
 .home-project-meta {
@@ -1960,8 +1988,9 @@ article header .title-card-image figcaption {
 article header .title-card-image figcaption .file-description {
   display: none;
 }
+
 .title-card-subject {
-  font-family: var(--font-ui);
+  font-family: 'Open_Sans_Regular', sans-serif;
   padding-bottom: 0.25em;
   color: #8D8D8D;
 }
