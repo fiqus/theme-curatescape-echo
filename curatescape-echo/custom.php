@@ -1961,8 +1961,8 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
         $index = $tour_index;
         $tour_id = $tour;
         $tour = get_record_by_id('tour', $tour_id);
-        $prevIndex = $index -1;
-        $nextIndex = $index +1;
+        $prevIndex = (int) $index -1;
+        $nextIndex = (int) $index +1;
         $tourTitle = metadata($tour, 'title');
         $tourURL = html_escape(public_url('tours/show/'.$tour_id));
 
