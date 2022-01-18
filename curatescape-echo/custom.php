@@ -1738,6 +1738,7 @@ function tour_items($tour){
       $html .= '</div>';
       $html .= '</article>';
       }
+      $i++;
   endforeach;
   $html .= '</div>';
   return '<section id="home-recent-random" class="browse inner-padding">'.$html.'</section>';

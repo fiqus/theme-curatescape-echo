@@ -26,12 +26,12 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                     <?php echo start_tour($tour); ?>
                 </div>
                 <div class="column">
-                    <!-- <h1>Column</h1> -->
-                    <div data-label="<?php echo htmlentities(strip_tags($map_label)); ?>">
+                    <h1>Column</h1>
+                    <!-- <div data-label="<?php echo htmlentities(strip_tags($map_label)); ?>">
                         <?php echo rl_story_map_multi($tour); ?>
                     </div>
                     <noscript><?php echo rl_nojs_map();?></noscript>
-                </div>
+                </div> -->
             </div>
         </header>
 
