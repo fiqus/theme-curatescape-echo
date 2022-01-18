@@ -33,7 +33,9 @@ if (($tag || $tags) && !($query)) {
     $bodyclass .=' queryresults';
     $maptype='queryresults';
 } elseif ($query) {
-    $title = __('Search Results for "%s"', $query);
+    // $title = __('Search Results for "%s"', $query);
+    $title = __(rl_item_label('plural'));
+    $subtitle = __('Labelled with "%2s"', $query);
     $bodyclass .=' queryresults';
     $maptype='queryresults';
 } elseif ($other) {
@@ -41,7 +43,8 @@ if (($tag || $tags) && !($query)) {
     $bodyclass .=' queryresults';
     $maptype='queryresults';
 } else {
-    $title = __('All %s', rl_item_label('plural'));
+    // $title = __('All %s', rl_item_label('plural'));
+    $title = __(rl_item_label('plural'));
     $bodyclass .=' items stories';
 }
 echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass'=>$bodyclass));
@@ -52,18 +55,21 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
     <article class="browse stories items">
         <div class="browse-header">
             <?php echo rl_admin_message('items-browse', array('super','admin'));?>
-            <h2 class="query-header"><?php
-        $title .= ($total_results ? ': <span class="item-number">'.$total_results.'</span>' : '');
+            <h2 class="query-header-no-border"><?php
+        // $title .= ($total_results ? ': <span class="item-number">'.$total_results.'</span>' : '');
         echo $title;
         ?></h2>
-            <nav class="secondary-nav" id="item-browse">
+        <?php if ($subtitle) {?>
+        <h5><?php echo $subtitle;?></h5>
+        <?php } ?>
+            <!-- <nav class="secondary-nav" id="item-browse">
                 <?php echo rl_item_browse_subnav();?>
-            </nav>
-            <div id="helper-links">
+            </nav> -->
+            <!-- <div id="helper-links">
                 <span class="helper-label"><?php echo rl_icon('funnel').'&nbsp;'.__("Sort by: "); ?>
                 </span>
                 <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title','Date Added'=>'added')); ?>
-            </div>
+            </div> -->
         </div>
 
         <div id="primary" class="browse">
@@ -90,13 +96,13 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                 }
                 ?>
                     <article class="item-result <?php echo $hasImage ? 'has-image' : 'no-image';?>">
-                        <?php echo link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); ?>
+                        <?php echo link_to_item('<span class="item-image-no-border '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); ?>
 
-                        <div class="result-details">
-                            <?php echo rl_filed_under($item);?>
+                        <div class="result-details left-aligned">
+                            <!-- <?php echo rl_filed_under($item);?> -->
                             <?php echo rl_the_title_expanded($item); ?>
                             <?php echo rl_the_byline($item, false);?>
-                            <?php echo link_to_item(__('View %s', rl_item_label('singular')),array('class'=>'readmore')).($has_location && $item->public ? ' <span class="sep-bar">|</span> <a role="button" data-id="'.$item->id.'" class="readmore showonmap" href="javascript:void(0)">'.__('Show on Map').'</a>' : null);?>
+                            <!-- <?php echo link_to_item(__('View %s', rl_item_label('singular')),array('class'=>'readmore')).($has_location && $item->public ? ' <span class="sep-bar">|</span> <a role="button" data-id="'.$item->id.'" class="readmore showonmap" href="javascript:void(0)">'.__('Show on Map').'</a>' : null);?> -->
                         </div>
 
                     </article>
