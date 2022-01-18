@@ -2886,6 +2886,11 @@ ul.pagination .button {
   margin-bottom: -1em;
   flex-grow: 1;
 }
+.browse .result-details.left-aligned {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
 .browse .browse-items .result-details {
   padding: 1em 1em 2em;
   border-left: none;
@@ -2928,6 +2933,22 @@ ul.pagination .button {
   filter: none;
 }
 .browse .item-image.portrait {
+  background-position: center 20%;
+}
+.browse .item-image-no-border {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  transition: filter 0.15s linear, box-shadow 0.15s linear, height 0.15s linear;
+}
+
+.browse .item-image-no-border:hover,
+.browse .item-image-no-border:focus {
+  filter: none;
+}
+.browse .item-image-no-border.portrait {
   background-position: center 20%;
 }
 .browse .browse-items {
