@@ -532,8 +532,8 @@ function rl_global_header($html=null)
         <!-- Home / Logo -->
         <?php echo link_to_home_page(rl_the_logo(), array('id'=>'home-logo', 'aria-label'=>'Home', 'style'=> 'margin-left: 0;margin-right: auto;')); ?>
         <div id="nav-desktop">
-            <?php echo get_theme_option('quicklink_story') ? '<a class="button transparent '.((is_current_url('/items/browse')) ? 'active' : null).'" href="'.url('items/browse').'">'.rl_item_label('plural').'</a>' : null; ?>
-            <?php echo get_theme_option('quicklink_tour') && plugin_is_active('TourBuilder') ? '<a class="button transparent '.((is_current_url('/tours/browse')) ? 'active' : null).'" href="'.url('tours/browse').'">'.rl_tour_label('plural').'</a>' : null; ?>
+            <?php echo get_theme_option('quicklink_story') ? '<a class="button transparent '.((is_current_url('/items/browse')) ? 'active' : null).'" href="#home-recent-random">'.rl_item_label('plural').'</a>' : null; ?>
+            <?php echo get_theme_option('quicklink_tour') && plugin_is_active('TourBuilder') ? '<a class="button transparent '.((is_current_url('/tours/browse')) ? 'active' : null).'" href="#home-tours">'.rl_tour_label('plural').'</a>' : null; ?>
             <?php echo get_theme_option('quicklink_map') && plugin_is_active('Geolocation') ? '<a class="button transparent '.((is_current_url('/items/map')) ? 'active' : null).'" href="#home-map">'.__('Map').'</a>' : null; ?>
             <?php echo '<a class="button transparent '.' " href="#home-about">'.Nosotros.'</a>'; ?>
         </div>
