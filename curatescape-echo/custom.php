@@ -532,8 +532,8 @@ function rl_global_header($html=null)
         <!-- Home / Logo -->
         <?php echo link_to_home_page(rl_the_logo(), array('id'=>'home-logo', 'aria-label'=>'Home', 'style'=> 'margin-left: 0;margin-right: auto;')); ?>
         <div id="nav-desktop">
-            <?php echo get_theme_option('quicklink_story') ? '<a class="button transparent '.((is_current_url('/items/browse')) ? 'active' : null).'" href="'.url('items/browse').'">'.rl_item_label('plural').'</a>' : null; ?>
-            <?php echo get_theme_option('quicklink_tour') && plugin_is_active('TourBuilder') ? '<a class="button transparent '.((is_current_url('/tours/browse')) ? 'active' : null).'" href="'.url('tours/browse').'">'.rl_tour_label('plural').'</a>' : null; ?>
+            <?php echo get_theme_option('quicklink_story') ? '<a class="button transparent '.((is_current_url('/items/browse')) ? 'active' : null).'" href="#home-recent-random">'.rl_item_label('plural').'</a>' : null; ?>
+            <?php echo get_theme_option('quicklink_tour') && plugin_is_active('TourBuilder') ? '<a class="button transparent '.((is_current_url('/tours/browse')) ? 'active' : null).'" href="#home-tours">'.rl_tour_label('plural').'</a>' : null; ?>
             <?php echo get_theme_option('quicklink_map') && plugin_is_active('Geolocation') ? '<a class="button transparent '.((is_current_url('/items/map')) ? 'active' : null).'" href="#home-map">'.__('Map').'</a>' : null; ?>
             <?php echo '<a class="button transparent '.' " href="#home-about">'.Nosotros.'</a>'; ?>
         </div>
@@ -547,9 +547,45 @@ function rl_global_header($html=null)
         <div id="header-search-inner" class="inner-padding">
             <?php echo rl_simple_search('header-search', array('id'=>'header-search-form','class'=>'capsule'), __('Search')); ?>
             <div class="search-options">
-                <?php echo '<a href="'.url('items/search').'">'.__('Advanced %s Search', rl_item_label()).' &#9656;</a>'; ?>
-                <br>
-                <?php echo '<a href="'.url('search').'">'.__('Sitewide Search').' &#9656;</a>'; ?>
+            </div>
+        </div>
+        <div class="overlay" onclick="overlayClick()"></div>
+    </div>
+
+    <div id="header-menu-container">
+        <div id="header-menu-inner">
+            <?php echo rl_find_us('transparent-on-dark'); ?>
+            <nav>
+                <?php echo rl_global_nav(true); ?>
+            </nav>
+            <div class="menu-random-container"><?php echo random_item_link(rl_icon('dice').__("View a Random %s", rl_item_label('singular')), $class='button transparent', $hasImage=true); ?></div>
+            <div class="menu-appstore-container"><?php echo rl_appstore_downloads(); ?></div>
+        </div>
+        <div class="overlay" onclick="overlayClick()"></div>
+    </div>
+    <?php
+}
+
+function rl_alternative_header($html=null)
+{
+    ?>
+    <nav id="top-navigation" class="" aria-label="<?php echo __('Main Navigation'); ?>">
+
+        <!-- Home / Logo -->
+        <?php echo link_to_home_page(rl_the_logo(), array('id'=>'home-logo', 'aria-label'=>'Home', 'style'=> 'margin-left: 0;margin-right: auto;')); ?>
+        <div id="nav-desktop">
+            <?php echo '<a class="button transparent '.' " onclick="history.back()">'.rl_icon("arrow-left").Volver.'</a>'; ?>
+        </div>
+        <div id="nav-interactive">
+            <!-- Search -->
+            <a role="button" tabindex="0" title="<?php echo __('Search'); ?>" id="search-button" href="#footer-search-form" class="button transparent"><?php echo rl_icon("search"); ?><span style="color: #B4B4B4"><?php echo __('Search').'...'; ?></span></a>
+        </div>
+
+    </nav>
+    <div id="header-search-container">
+        <div id="header-search-inner" class="inner-padding">
+            <?php echo rl_simple_search('header-search', array('id'=>'header-search-form','class'=>'capsule'), __('Search')); ?>
+            <div class="search-options">
             </div>
         </div>
         <div class="overlay" onclick="overlayClick()"></div>

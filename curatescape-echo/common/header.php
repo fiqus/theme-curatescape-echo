@@ -171,7 +171,7 @@
         <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
 
         <header class="primary">
-            <?php echo rl_global_header();?>
+            <?php echo is_current_url('/') ? rl_global_header() : rl_alternative_header();?>
         </header>
 
 
