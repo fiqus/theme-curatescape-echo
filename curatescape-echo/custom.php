@@ -2012,13 +2012,15 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
 
         $tournav .= '<ul class="tour-nav">';
         // $tournav .= '<li class="head"><span title="'.__('%s Navigation', rl_tour_label('singular')).'" class="icon-capsule label">'.rl_icon("list").'<span class="label">'.__('%s Navigation', rl_tour_label('singular')).'</span></span></li>';
-        $tournav .= '<li class="head"><span title="'.__('%s Navegación', rl_tour_label('singular')).'" class="icon-capsule label">'.rl_icon("list").'<span class="label">'.strtoupper('Recorrido').'</span></span></li>';
-        // $tournav .= $prev ? '<li><a title="'.__('Previous Loction').'" class="icon-capsule" href="'.public_url("items/show/$prev?tour=$tour_id&index=$prevIndex").'">'.rl_icon("arrow-back").'<span class="label">'.__('Previous').'</span></a></li>' : null;
-        $tournav .= $prev ? '<li><a title="'.__('Previous Loction').'" class="icon-capsule" href="'.public_url("items/show/$prev?tour=$tour_id&index=$prevIndex").'">'.rl_icon("arrow-back").'<span class="label">'."Anterior".'</span></a></li>' : null;
+        $tournav .= '<li class="head"><span title="'.__('%s Navegación', rl_tour_label('singular')).'" class="icon-capsule label"><span class="label">'.strtoupper('Recorrido').'</span></span></li>';
         // $tournav .= '<li class="info"><a title="'.__('%s Info', rl_tour_label('singular')).': '.$tourTitle.'" class="icon-capsule" href="'.$tourURL.'">'.rl_icon("compass").'<span class="label">'.__('%s Info', rl_tour_label('singular')).'</span></a></li>';
-        $tournav .= '<li class="info"><a title="'.__('%s Info', rl_tour_label('singular')).': '.$tourTitle.'" class="icon-capsule" href="'.$tourURL.'">'.rl_icon("compass").'<span class="label">'.'Volver al recorrido'.'</span></a></li>';
+        $tournav .= '<li class="info"><a title="'.__('%s Info', rl_tour_label('singular')).': '.$tourTitle.'" class="icon-capsule tour-mini-title" href="'.$tourURL.'"><span class="">'.$tourTitle.'</span></a></li>';
         // $tournav .= $next ? '<li><a title="'.__('Next Location').'" class="icon-capsule" href="'.public_url("items/show/$next?tour=$tour_id&index=$nextIndex").'">'.rl_icon("arrow-forward").'<span class="label">'.__('Next').'</span></a></li>' : null;
-        $tournav .= $next ? '<li><a title="'.__('Next Location').'" class="icon-capsule" href="'.public_url("items/show/$next?tour=$tour_id&index=$nextIndex").'">'.rl_icon("arrow-forward").'<span class="label">'."Siguiente".'</span></a></li>' : null;
+        // $tournav .= $prev ? '<li><a title="'.__('Previous Loction').'" class="icon-capsule" href="'.public_url("items/show/$prev?tour=$tour_id&index=$prevIndex").'">'.rl_icon("arrow-back").'<span class="label">'.__('Previous').'</span></a></li>' : null;
+        $tournav .= '<div class="tour-nav-buttons">';
+        $tournav .= $prev ? '<li><a title="'.__('Previous Loction').'" class="tour-nav-button" href="'.public_url("items/show/$prev?tour=$tour_id&index=$prevIndex").'">'.rl_icon("arrow-back").'<span class="label">'."Volver".'</span></a></li>' : null;
+        $tournav .= $next ? '<li><a title="'.__('Next Location').'" class="tour-nav-button" href="'.public_url("items/show/$next?tour=$tour_id&index=$nextIndex").'"><span class="label">'."Continuar".'</span>'.rl_icon("arrow-forward").'</a></li>' : null;
+        $tournav .= '</div>';
         $tournav .= '</ul>';
     }
 
@@ -2029,14 +2031,14 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
     }
 
     // Output HTML
-    $html .= '<nav class="rl-toc"><ul>'.
+    $html .= '<nav class="rl-toc">'.$tournav.'<ul>'.
       // '<li class="head"><span title="'.__('%s Contents', rl_item_label('singular')).'" class="icon-capsule label">'.rl_icon("list").'<span class="label">'.__('%s Contents', rl_item_label('singular')).'</span></span></li>'.
       '<li><a title="'.__('Skip to Main Text').'" class="icon-capsule" href="#text-section">'.'<span class="label">'.__('Content').'</span>'.rl_icon("book").'</a></li>'.
       $media_list.
       $location.
       // '<li><a title="'.__('Skip to %s', __('Metadata')).'" class="icon-capsule" href="#metadata-section">'.rl_icon("pricetags").'<span class="label">'.__('Metadata').'</span></a></li>'.
       $totop.
-      '</ul>'.$tournav.'</nav>';
+      '</ul></nav>';
 
     return $html;
 }

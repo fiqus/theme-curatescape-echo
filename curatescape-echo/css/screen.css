@@ -43,7 +43,7 @@
 
   /* Content Backgrounds */
   --bg-body: #F6F6F6;
-  --bg-article: var(--light-primary);
+  --bg-article: #F6F6F6;
   --bg-body-dark: var(--dark-tertiary-subtle);
   --bg-article-dark: var(--dark-tertiary-subtle);
 
@@ -1236,6 +1236,7 @@ figcaption,
 .story-columns .column:first-child {
   min-width: 10em;
   padding-left: 1em;
+  max-width: 12em;
 }
 .tour-columns {
   display: flex;
@@ -2478,17 +2479,53 @@ nav.rl-toc ul {
 }
 .icon-capsule .icon {
   width: 2em;
-  padding: 4px;
+  /* padding: 4px; */
   text-align: center;
   /* background: var(--light-secondary); */
 }
+.tour-nav{
+  margin-bottom: 3em;
+}
+.tour-nav .info{
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: bold;
+  
+}
+.tour-nav .tour-mini-title{
+  text-align: right !important;
+  line-height: 20px;
+  margin-bottom: 1em;
+  
+}
+.tour-nav-buttons{
+  display: flex;
+  font-size: small;
+  justify-content: space-between;
+}
+.tour-nav-button{
+  background-color: #489AFA;
+  color: white;
+  border-radius: 5rem;
+  font-family: 'Open Sans Semibold', sans-serif;
+  display: table;
+  text-decoration: none;
+  width: 100%;
+  min-width: 84px;
+  padding: 0.3em;
+}
+.tour-nav-button .label{
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+
 ul.tour-nav li:not(.head) .icon-capsule .icon {
   background: var(--link-text);
   color: var(--light-primary);
 }
 ul.tour-nav li:not(.head) .icon-capsule .label {
-  background: var(--link-text);
-  color: var(--light-primary);
+  /* ACA */
 }
 .icon-capsule .icon svg {
   width: 1em;
@@ -2507,6 +2544,7 @@ ul.tour-nav li:not(.head) .icon-capsule .label {
   font-weight: 400;
   line-height: 33px;
   color: #4E4E4E;
+  text-align: right
 }
 .icon-capsule.no-bg .icon,
 .icon-capsule.no-bg .label,
