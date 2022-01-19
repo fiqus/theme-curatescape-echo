@@ -52,7 +52,6 @@ echo head(
                             $html .= '<a class="permalink" href="' . WEB_ROOT . '/tours/show/'. tour('id').'"><h3 class="title">' . tour('title').'</h3></a>';
                                 // '<span class="byline">'.rl_icon('compass').__('%s Locations', rl_tour_total_items($tour)).'</span>';
                             // $html .= '<p class="tour-snip">'.snippet(strip_tags(htmlspecialchars_decode(tour('description'))), 0, 200).'<br><a class="readmore" href="'.WEB_ROOT . '/tours/show/'. tour('id').'">'.__('View %s', rl_tour_label('singular')).'</a></p>';
-                            $html .= '<a class="readmore" href="'.WEB_ROOT . '/tours/show/'. tour('id').'">'.__('View %s', rl_tour_label('singular')).'</a></p>';
                             $html .= '</div>';
                             $html .= '</article>';
                         }

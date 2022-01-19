@@ -572,7 +572,7 @@ p {
 .home a .title,
 .browse a .title {
   font-family: 'Libre Baskerville Regular', serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0 0 0.15em;
 }
 .home .byline a,
@@ -1201,7 +1201,6 @@ figcaption,
 }
 /* Layout */
 #content[role="main"]:not(.wide) {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 1em 2em;
 }
@@ -3212,8 +3211,10 @@ ul.pagination .button {
 }
 .tour-inner {
   margin: 0;
-
-  padding: 0.4em 0 0 1em;
+  padding: 0 0 0 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: var(--tour-image-size);
   height: 100px;
   /* border-left: var(--deco-border); */
