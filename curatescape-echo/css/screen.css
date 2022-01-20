@@ -1428,6 +1428,7 @@ header.primary a#home-logo img {
   padding: 10px 1em;
   flex-grow: 0;
   align-self: center;
+  margin-left: 1em;
 }
 header.primary nav #nav-interactive {
   padding-right: 3rem;
