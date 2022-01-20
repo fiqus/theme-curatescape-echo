@@ -2010,6 +2010,7 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
         $next = tour_item_id($tour, $nextIndex);
         $prev = tour_item_id($tour, $prevIndex);
 
+
         $tournav .= '<ul class="tour-nav">';
         // $tournav .= '<li class="head"><span title="'.__('%s Navigation', rl_tour_label('singular')).'" class="icon-capsule label">'.rl_icon("list").'<span class="label">'.__('%s Navigation', rl_tour_label('singular')).'</span></span></li>';
         $tournav .= '<li class="head"><span title="'.__('%s Navegación', rl_tour_label('singular')).'" class="icon-capsule label"><span class="label">'.strtoupper('Recorrido').'</span></span></li>';
@@ -2017,11 +2018,19 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
         $tournav .= '<li class="info"><a title="'.__('%s Info', rl_tour_label('singular')).': '.$tourTitle.'" class="icon-capsule tour-mini-title" href="'.$tourURL.'"><span class="">'.$tourTitle.'</span></a></li>';
         // $tournav .= $next ? '<li><a title="'.__('Next Location').'" class="icon-capsule" href="'.public_url("items/show/$next?tour=$tour_id&index=$nextIndex").'">'.rl_icon("arrow-forward").'<span class="label">'.__('Next').'</span></a></li>' : null;
         // $tournav .= $prev ? '<li><a title="'.__('Previous Loction').'" class="icon-capsule" href="'.public_url("items/show/$prev?tour=$tour_id&index=$prevIndex").'">'.rl_icon("arrow-back").'<span class="label">'.__('Previous').'</span></a></li>' : null;
-        $tournav .= '<div class="tour-nav-buttons">';
+        if($next && $prev){
+          $tournav .= '<div class="tour-nav-buttons">';
+        }
+        else{
+          $tournav .= '<div class="tour-nav-sigle-button">';
+        }
+        
         $tournav .= $prev ? '<li><a title="'.__('Previous Loction').'" class="tour-nav-button" href="'.public_url("items/show/$prev?tour=$tour_id&index=$prevIndex").'">'.rl_icon("arrow-back").'<span class="label">'."Volver".'</span></a></li>' : null;
         $tournav .= $next ? '<li><a title="'.__('Next Location').'" class="tour-nav-button" href="'.public_url("items/show/$next?tour=$tour_id&index=$nextIndex").'"><span class="label">'."Continuar".'</span>'.rl_icon("arrow-forward").'</a></li>' : null;
         $tournav .= '</div>';
         $tournav .= '</ul>';
+
+
     }
 
     // Location HTML

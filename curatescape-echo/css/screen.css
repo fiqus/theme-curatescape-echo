@@ -2503,6 +2503,11 @@ nav.rl-toc ul {
   font-size: small;
   justify-content: space-between;
 }
+.tour-nav-sigle-button{
+  display: flex;
+  font-size: small;
+  justify-content: flex-end;
+}
 .tour-nav-button{
   background-color: #489AFA;
   color: white;
