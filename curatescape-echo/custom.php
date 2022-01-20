@@ -679,6 +679,32 @@ function rl_homepage_map($ishome=true)
 }
 
 /*
+** tour Map - HOME
+*/
+function rl_tour_map($ishome=true)
+{
+    if(plugin_is_active('Geolocation') && plugin_is_active('CuratescapeJSON')):
+        $pluginlat=(get_option('geolocation_default_latitude')) ? get_option('geolocation_default_latitude') : null;
+        $pluginlon=(get_option('geolocation_default_longitude')) ? get_option('geolocation_default_longitude') : null;
+        $zoom=(get_option('geolocation_default_zoom_level')) ? get_option('geolocation_default_zoom_level') : 12; ?>
+        <section id="home-map" class="inner-padding browse">
+            <h2 class="query-header"></h2>
+            <div id="home-map-container" data-label="">
+                <figure id="multi-map" data-json-source="<?php echo $_SERVER['REQUEST_URI'].'/?output=mobile-json' ?>" data-lat="<?php echo $pluginlat; ?>" data-lon="<?php echo $pluginlon; ?>" data-zoom="<?php echo $zoom; ?>" data-default-layer="<?php echo get_theme_option('map_style') ? get_theme_option('map_style') : 'CARTO_VOYAGER'; ?>" data-color="<?php echo get_theme_option('marker_color'); ?>" data-featured-color="<?php echo get_theme_option('featured_marker_color'); ?>" data-featured-star="<?php echo get_theme_option('featured_marker_star'); ?>" data-root-url="<?php echo WEB_ROOT; ?>" data-maki-js="<?php echo src('maki/maki.min.js', 'javascripts'); ?>" data-providers="<?php echo src('providers.js', 'javascripts'); ?>" data-leaflet-js="<?php echo src('theme-leaflet/leaflet.js', 'javascripts'); ?>" data-leaflet-css="<?php echo src('theme-leaflet/leaflet.css', 'javascripts'); ?>" data-cluster-css="<?php echo src('leaflet.markercluster/leaflet.markercluster.min.css', 'javascripts'); ?>" data-cluster-js="<?php echo src('leaflet.markercluster/leaflet.markercluster.js', 'javascripts'); ?>" data-cluster="<?php echo $tour && get_theme_option('tour_clustering') ? '1' : get_theme_option('clustering'); ?>" data-fitbounds-label="<?php echo __('Zoom to fit all locations'); ?>">
+                    <div class="curatescape-map">
+                        <div id="curatescape-map-canvas"></div>
+                    </div>
+                </figure>
+            </div>
+            <?php if($ishome):?>
+                <!-- <div class="view-more-link"><a class="button" href="/items/map"><?php echo __('View Map Page');?></a></div> -->
+            <?php endif;?>
+        </section>
+    <?php
+    endif;
+}
+
+/*
 ** Outputs UI and hidden markup for multi-map
 */
 function multimap_markup($tour=false, $map_label=null, $button_label=null)
