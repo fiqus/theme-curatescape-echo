@@ -453,7 +453,7 @@ small,
 .search-sub {
   font-size: 0.833em;
   color: var(--text-caption);
-  font-family: 'Open Sans Semibold', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   letter-spacing: 0.015em;
 }
 header,
@@ -2496,11 +2496,18 @@ nav.rl-toc ul {
   font-weight: bold;
   
 }
+.tour-nav .head .icon-capsule .label{
+  font-size: large;
+  color: #898989;
+  font-weight: 300 !important;
+}
 .tour-nav .tour-mini-title{
   text-align: right !important;
   line-height: 20px;
   margin-bottom: 1em;
   color: #4E4E4E;
+  font-family: 'Libre Baskerville';
+  font-size: larger;
 }
 .tour-nav-buttons{
   display: flex;
@@ -2528,7 +2535,14 @@ nav.rl-toc ul {
   color: white !important;
   font-weight: 600 !important;
 }
-
+.tour-description{
+  font-family: "Libre Baskerville";
+  color:#444444;
+}
+.story-columns .column p{
+  font-family: "Libre Baskerville";
+  color:#444444;
+}
 
 ul.tour-nav li:not(.head) .icon-capsule .icon {
   background: var(--link-text);
@@ -2551,7 +2565,7 @@ ul.tour-nav li:not(.head) .icon-capsule .label {
   /* background: var(--light-primary-subtle); */
   font-family: Open Sans;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 33px;
   color: #4E4E4E;
   text-align: right

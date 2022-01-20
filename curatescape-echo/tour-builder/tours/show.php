@@ -20,7 +20,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                     <!-- <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? __('Created by %s', '<a>'.tour('Credits').'</a>') : __('Created by %s', option('site_title'))).'</div>';?> -->
                     <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? 'Creado por <spam class="lightblue">'.tour('Credits').'</spam>' : 'Creado por <spam class="lightblue">'.option('site_title')).'</spam></div>';?>
                     <section id="text" aria-label="<?php echo __('%s Description', rl_tour_label('singular'));?>">
-                        <div class="">
+                        <div class="tour-description">
                             <?php echo htmlspecialchars_decode(nls2p(tour('Description'))); ?>
                         </div>
                     </section>
