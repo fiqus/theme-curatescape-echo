@@ -2484,7 +2484,7 @@ nav.rl-toc ul {
   /* background: var(--light-secondary); */
 }
 .tour-nav{
-  margin-bottom: 3em;
+  margin-bottom: 2.5em;
 }
 .tour-nav .info{
   font-family: 'Libre Baskerville';
@@ -2496,7 +2496,7 @@ nav.rl-toc ul {
   text-align: right !important;
   line-height: 20px;
   margin-bottom: 1em;
-  
+  color: #4E4E4E;
 }
 .tour-nav-buttons{
   display: flex;
