@@ -43,7 +43,7 @@
 
   /* Content Backgrounds */
   --bg-body: #F6F6F6;
-  --bg-article: var(--light-primary);
+  --bg-article: #F6F6F6;
   --bg-body-dark: var(--dark-tertiary-subtle);
   --bg-article-dark: var(--dark-tertiary-subtle);
 
@@ -430,7 +430,7 @@ small,
 .query-header-no-border {
   font-family: 'Open Sans Regular', sans-serif;
   margin-top: 1rem;
-  margin-left: 1.3rem;
+  margin-left: 0.3rem;
   color: var(--titles);
   font-size: 1.5rem;
 }
@@ -1236,6 +1236,7 @@ figcaption,
 .story-columns .column:first-child {
   min-width: 10em;
   padding-left: 1em;
+  max-width: 12em;
 }
 .tour-columns {
   display: flex;
@@ -2478,17 +2479,59 @@ nav.rl-toc ul {
 }
 .icon-capsule .icon {
   width: 2em;
-  padding: 4px;
+  /* padding: 4px; */
   text-align: center;
   /* background: var(--light-secondary); */
 }
+.tour-nav{
+  margin-bottom: 2.5em;
+}
+.tour-nav .info{
+  font-family: 'Libre Baskerville';
+  font-style: normal;
+  font-weight: bold;
+  
+}
+.tour-nav .tour-mini-title{
+  text-align: right !important;
+  line-height: 20px;
+  margin-bottom: 1em;
+  color: #4E4E4E;
+}
+.tour-nav-buttons{
+  display: flex;
+  font-size: small;
+  justify-content: space-between;
+}
+
+.tour-nav-sigle-button{
+  display: flex;
+  font-size: small;
+  justify-content: flex-end;
+}
+.tour-nav-button{
+  background-color: #489AFA;
+  color: white;
+  border-radius: 5rem;
+  font-family: 'Open Sans Semibold', sans-serif;
+ 
+  text-decoration: none;
+  width: 100%;
+  min-width: 84px;
+  padding: 0.5em;
+}
+.tour-nav-button .label{
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+
 ul.tour-nav li:not(.head) .icon-capsule .icon {
   background: var(--link-text);
   color: var(--light-primary);
 }
 ul.tour-nav li:not(.head) .icon-capsule .label {
-  background: var(--link-text);
-  color: var(--light-primary);
+  /* ACA */
 }
 .icon-capsule .icon svg {
   width: 1em;
@@ -2507,6 +2550,7 @@ ul.tour-nav li:not(.head) .icon-capsule .label {
   font-weight: 400;
   line-height: 33px;
   color: #4E4E4E;
+  text-align: right
 }
 .icon-capsule.no-bg .icon,
 .icon-capsule.no-bg .label,
@@ -2929,7 +2973,7 @@ ul.pagination .button {
 
 /* Browse */
 .browse .result-details {
-  padding: 1em 1em 2em;
+  padding-top: 1em ;
   /* border-left: var(--deco-border); */
   margin-left: 2em;
   margin-bottom: -1em;
@@ -2942,7 +2986,7 @@ ul.pagination .button {
 }
 
 .browse .browse-items .result-details {
-  padding: 1em 1em 2em;
+  padding-bottom: 2em; 
   border-left: none;
   margin-left: 0;
   margin-bottom: -1em;
