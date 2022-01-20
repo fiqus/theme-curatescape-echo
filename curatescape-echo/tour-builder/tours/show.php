@@ -15,10 +15,10 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
 
         <header id="tour-header">
             <div class=" inner-padding tour-columns">
-                <div class="column">
+                <div class="column" style="padding-top: 3.5rem">
                     <h1 class="tour-title title"><?php echo $tourTitle; ?></h1>
                     <!-- <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? __('Created by %s', '<a>'.tour('Credits').'</a>') : __('Created by %s', option('site_title'))).'</div>';?> -->
-                    <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? __('Creado por %s', '<a>'.tour('Credits').'</a>') : __('Created by %s', option('site_title'))).'</div>';?>
+                    <?php echo '<div class="byline custom-link">'.__(tour('Credits') ? 'Creado por '.tour('Credits') : 'Creado por '.option('site_title')).'</div>';?>
                     <section id="text" aria-label="<?php echo __('%s Description', rl_tour_label('singular'));?>">
                         <div class="">
                             <?php echo htmlspecialchars_decode(nls2p(tour('Description'))); ?>
@@ -26,13 +26,9 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                     </section>
                     <?php echo start_tour($tour); ?>
                 </div>
-                <div class="column">
-                    <h1>Column</h1>
-                    <!-- <div data-label="<?php echo htmlentities(strip_tags($map_label)); ?>">
-                        <?php echo rl_story_map_multi($tour); ?>
-                    </div>
-                    <noscript><?php echo rl_nojs_map();?></noscript>
-                </div> -->
+                <div class="column" style="width: 50rem;">
+                    <?php echo rl_tour_map(); ?>
+                </div>
             </div>
         </header>
 
@@ -112,8 +108,6 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
             <?php echo rl_display_comments();?>
         </section>
         <?php endif;?> -->
-
-        <?php echo multimap_markup(true, $tourTitle, __('Show %s Map', rl_tour_label()));?>
 
     </article>
 </div> <!-- end content -->

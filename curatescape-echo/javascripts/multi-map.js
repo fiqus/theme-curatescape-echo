@@ -412,12 +412,13 @@ if (!(container.getAttribute("id") === "home-map-container")) {
 } else {
   // homepage...
   document.onreadystatechange = () => {
+    const isHomePage = window.location.pathname === "/";
     var loaded = false;
     if ("IntersectionObserver" in window) {
       const scrollEvents = (entries, observer) => {
         entries.forEach(function (entry) {
           if (entry.isIntersecting && !loaded) {
-            loadMapMulti(null, true);
+            loadMapMulti(null, isHomePage);
             loaded = true;
           }
         });
@@ -425,7 +426,7 @@ if (!(container.getAttribute("id") === "home-map-container")) {
       let observer = new IntersectionObserver(scrollEvents, {});
       observer.observe(document.querySelector("#home-map .query-header"));
     } else {
-      loadMapMulti(null, true);
+      loadMapMulti(null, isHomePage);
     }
   };
 }
