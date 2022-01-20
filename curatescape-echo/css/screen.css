@@ -2483,6 +2483,10 @@ nav.rl-toc ul {
   text-align: center;
   /* background: var(--light-secondary); */
 }
+.lightblue{
+  color:#5FA7FB;
+  text-decoration: underline;
+}
 .tour-nav{
   margin-bottom: 2.5em;
 }
