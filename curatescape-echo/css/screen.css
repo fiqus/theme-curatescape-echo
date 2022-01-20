@@ -2503,6 +2503,7 @@ nav.rl-toc ul {
   font-size: small;
   justify-content: space-between;
 }
+
 .tour-nav-sigle-button{
   display: flex;
   font-size: small;
@@ -2513,11 +2514,11 @@ nav.rl-toc ul {
   color: white;
   border-radius: 5rem;
   font-family: 'Open Sans Semibold', sans-serif;
-  display: table;
+ 
   text-decoration: none;
   width: 100%;
   min-width: 84px;
-  padding: 0.3em;
+  padding: 0.5em;
 }
 .tour-nav-button .label{
   color: white !important;
