@@ -2021,6 +2021,8 @@ function rl_story_nav($has_images=0, $has_audio=0, $has_video=0, $has_other=0, $
     if ($has_other) {
         $media_list .= '<li><a title="'.__('Skip to %s', __('Documents')).'" class="icon-capsule" href="#documents">'.'<span class="label">'.__('Documents').' ('.$has_other.')</span>'.rl_icon("documents").'</a></li>';
     }
+    $media_list .= '<li hidden id="chronology-button"><a title="' . __('Skip to %s', 'chronology') . '" class="icon-capsule" href="#chronology">' . '<span class="label">' . 'Cronología' . '</span>'. rl_icon("history").'</a></li>';
+
 
     $tournav = null;
     if ($tour && isset($tour_index)) {

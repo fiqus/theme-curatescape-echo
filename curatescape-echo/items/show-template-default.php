@@ -65,6 +65,26 @@ echo head(array(
     </aside> -->
     <!-- <div class="separator wide thin"></div> -->
     <div class="story-columns inner-padding max-content-width">
+        <script>
+            function docReady(fn) {
+                // see if DOM is already available
+                if (document.readyState === "complete" || document.readyState === "interactive") {
+                    // call on next available tick
+                    setTimeout(fn, 1);
+                } else {
+                    document.addEventListener("DOMContentLoaded", fn);
+                }
+            }
+
+            function hide_chronology() {
+                docReady(function() {
+                    if (document.getElementById("chronology")) {
+                        document.getElementById("chronology-button").hidden = false;
+                    }
+                });
+            }
+            <?php echo 'hide_chronology();' ?>
+        </script>
         <div class="column">
             <div class="sticky">
                 <?php echo rl_story_nav($has_image_count, $has_audio_count, $has_video_count, $has_other_count, $has_location, $tour, $tour_index);?>
