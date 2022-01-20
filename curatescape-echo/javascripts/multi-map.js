@@ -388,45 +388,58 @@ const loadMapMulti = (requested_id = null, isHomePage = false) => {
     }
   }
 };
-// MAIN
-if (!(container.getAttribute("id") === "home-map-container")) {
-  // not homepage...
-  overlay.addEventListener("click", (e) => {
-    if (e.srcElement.classList.contains("open")) {
-      closeMultiMap();
-    }
-  });
-  showmap.addEventListener("click", (e) => {
-    if (e.srcElement.classList.contains("open")) {
-      closeMultiMap();
-    } else {
-      openMultiMap();
-    }
-  });
-  showmap_with_marker.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      openMultiMap(e.srcElement.dataset.id);
-    });
-  });
-} else {
-  // homepage...
-  document.onreadystatechange = () => {
-    const isHomePage = window.location.pathname === "/";
-    var loaded = false;
-    if ("IntersectionObserver" in window) {
-      const scrollEvents = (entries, observer) => {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !loaded) {
-            loadMapMulti(null, isHomePage);
-            loaded = true;
-          }
-        });
-      };
-      let observer = new IntersectionObserver(scrollEvents, {});
-      observer.observe(document.querySelector("#home-map .query-header"));
-    } else {
-      loadMapMulti(null, isHomePage);
-    }
-  };
+
+function docReady(fn) {
+  // see if DOM is already available
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    // call on next available tick
+    setTimeout(fn, 1);
+  } else {
+    document.addEventListener("DOMContentLoaded", fn);
+  }
 }
+
+// MAIN
+docReady(function () {
+  if (!(container.getAttribute("id") === "home-map-container")) {
+    // not homepage...
+    overlay.addEventListener("click", (e) => {
+      if (e.srcElement.classList.contains("open")) {
+        closeMultiMap();
+      }
+    });
+    showmap.addEventListener("click", (e) => {
+      if (e.srcElement.classList.contains("open")) {
+        closeMultiMap();
+      } else {
+        openMultiMap();
+      }
+    });
+    showmap_with_marker.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        openMultiMap(e.srcElement.dataset.id);
+      });
+    });
+  } else {
+    // homepage...
+    document.onreadystatechange = () => {
+      const isHomePage = window.location.pathname === "/";
+      var loaded = false;
+      if ("IntersectionObserver" in window) {
+        const scrollEvents = (entries, observer) => {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && !loaded) {
+              loadMapMulti(null, isHomePage);
+              loaded = true;
+            }
+          });
+        };
+        let observer = new IntersectionObserver(scrollEvents, {});
+        observer.observe(document.querySelector("#home-map .query-header"));
+      } else {
+        loadMapMulti(null, isHomePage);
+      }
+    };
+  }
+})
