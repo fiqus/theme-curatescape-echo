@@ -430,7 +430,7 @@ small,
 .query-header-no-border {
   font-family: 'Open Sans Regular', sans-serif;
   margin-top: 1rem;
-  margin-left: 1.3rem;
+  margin-left: 0.3rem;
   color: var(--titles);
   font-size: 1.5rem;
 }
@@ -2967,7 +2967,7 @@ ul.pagination .button {
 
 /* Browse */
 .browse .result-details {
-  padding: 1em 1em 2em;
+  padding-top: 1em ;
   /* border-left: var(--deco-border); */
   margin-left: 2em;
   margin-bottom: -1em;
@@ -2980,7 +2980,7 @@ ul.pagination .button {
 }
 
 .browse .browse-items .result-details {
-  padding: 1em 1em 2em;
+  padding-bottom: 2em; 
   border-left: none;
   margin-left: 0;
   margin-bottom: -1em;
