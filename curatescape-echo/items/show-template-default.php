@@ -93,7 +93,7 @@ echo head(array(
         <div class="column">
 
             <section aria-label="<?php echo __('Content');?>" id="text-section" data-toc="#text-section">
-                <?php echo $the_lede ? $the_lede.'<div class="separator flush-top"></div>' : null; ?>
+                <?php echo $the_lede ? $the_lede.'<div class="separator flush-top"></div>' : nclass="tour-nav"ull; ?>
                 <?php echo rl_the_text(); ?>
                 <?php echo rl_factoid();?>
             </section>
