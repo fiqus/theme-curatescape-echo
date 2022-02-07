@@ -166,7 +166,7 @@
   --apple: #000;
   --android: #54802d;
 
-  --tour-image-size: 350px;
+  --tour-image-size: 23rem;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -1881,7 +1881,7 @@ header.primary nav #nav-interactive a > i {
   .home-tours-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     /* flex-wrap: wrap; */
   }
   .home-tours-container article {
