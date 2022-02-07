@@ -166,7 +166,7 @@
   --apple: #000;
   --android: #54802d;
 
-  --tour-image-size: 23rem;
+  --tour-image-size: 350px;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -430,7 +430,7 @@ small,
 .query-header-no-border {
   font-family: 'Open Sans Regular', sans-serif;
   margin-top: 1rem;
-  margin-left: 0.3rem;
+  /* margin-left: 0.3rem; */
   color: var(--titles);
   font-size: 1.5rem;
 }
@@ -453,7 +453,7 @@ small,
 .search-sub {
   font-size: 0.833em;
   color: var(--text-caption);
-  font-family: 'Open Sans Semibold', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   letter-spacing: 0.015em;
 }
 header,
@@ -1208,7 +1208,7 @@ figcaption,
   min-height: 45vh;
 }
 .max-content-width {
-  max-width: 1800px;
+  max-width: 1900px;
   margin: 0 auto;
 }
 .inner-padding {
@@ -1249,7 +1249,7 @@ figcaption,
 }
 .tour-columns .column:first-child {
   min-width: 10em;
-  padding-left: 1em;
+  /* padding-left: 1em; */
 }
 @media all and (max-width: 1000px) {
   .story-columns .column:first-child {
@@ -1403,7 +1403,7 @@ hr {
 }
 .to-right{
   margin-left: auto;
-  margin-right: 1.5rem;
+  /* margin-right: 1.5rem; */
 }
 
 /* Header Primary */
@@ -1428,6 +1428,7 @@ header.primary a#home-logo img {
   padding: 10px 1em;
   flex-grow: 0;
   align-self: center;
+  margin-left: 1em;
 }
 header.primary nav #nav-interactive {
   padding-right: 3rem;
@@ -1869,8 +1870,11 @@ header.primary nav #nav-interactive a > i {
 
 #recent-articles {
   display: flex;
-  margin: 0 -10px;
+  /* margin: 0 -10px; */
   align-items: baseline;
+}
+.home-tours-container{
+  justify-content: space-between;
 }
 
 @media all and (min-width: 1100px) {
@@ -1895,7 +1899,7 @@ header.primary nav #nav-interactive a > i {
 }
 #tours-home{
   display: flex;
-  margin: 0 -10px;
+  /* margin: 0 -10px; */
   align-items: baseline;
 }
 #tours {
@@ -2482,6 +2486,10 @@ nav.rl-toc ul {
   text-align: center;
   /* background: var(--light-secondary); */
 }
+.lightblue{
+  color:#5FA7FB;
+  text-decoration: underline;
+}
 .tour-nav{
   margin-bottom: 2.5em;
 }
@@ -2491,11 +2499,18 @@ nav.rl-toc ul {
   font-weight: bold;
   
 }
+.tour-nav .head .icon-capsule .label{
+  font-size: large;
+  color: #898989;
+  font-weight: 300 !important;
+}
 .tour-nav .tour-mini-title{
   text-align: right !important;
   line-height: 20px;
   margin-bottom: 1em;
   color: #4E4E4E;
+  font-family: 'Libre Baskerville';
+  font-size: larger;
 }
 .tour-nav-buttons{
   display: flex;
@@ -2523,7 +2538,14 @@ nav.rl-toc ul {
   color: white !important;
   font-weight: 600 !important;
 }
-
+.tour-description{
+  font-family: "Libre Baskerville";
+  color:#444444;
+}
+.story-columns .column p{
+  font-family: "Libre Baskerville";
+  color:#444444;
+}
 
 ul.tour-nav li:not(.head) .icon-capsule .icon {
   background: var(--link-text);
@@ -2546,7 +2568,7 @@ ul.tour-nav li:not(.head) .icon-capsule .label {
   /* background: var(--light-primary-subtle); */
   font-family: Open Sans;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 33px;
   color: #4E4E4E;
   text-align: right
@@ -3048,11 +3070,11 @@ ul.pagination .button {
 .browse .browse-items {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   transition: margin 0.15s linear;
 }
-@media screen and (min-width: 1350px) {
+/* @media screen and (min-width: 1350px) {
   .browse .browse-items {
     margin: 0 -15px;
   }
@@ -3066,7 +3088,7 @@ ul.pagination .button {
   .browse .browse-items {
     margin: 0 -20px;
   }
-}
+} */
 .browse .item-result {
   width: 31.333%;
   align-self: start;
@@ -3077,6 +3099,12 @@ ul.pagination .button {
   flex-direction: column;
   align-self: stretch;
   transition: width 0.15s linear;
+}
+.browse .home-tours-container .item-result {
+  width: auto !important;
+}
+.browse #browse-tours-container .item-result {
+  width: auto !important;
 }
 @media screen and (max-width: 1100px) {
   .browse .item-result {
@@ -3191,7 +3219,7 @@ ul.pagination .button {
 #browse-tours-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .item-result .byline .icon svg {
@@ -3213,8 +3241,8 @@ ul.pagination .button {
   /* flex-direction: row; */
   justify-content: flex-start;
   padding-right: 0 !important;
-  margin: 2px 10px 2px 10px;
-  align-items: center;
+  /* margin: 2px 10px 2px 10px; */
+  /* align-items: center; */
 }
 .item-result.tour .tour-image {
   width: var(--tour-image-size);

@@ -1803,7 +1803,7 @@ function tour_items($tour){
       $i++;
   endforeach;
   $html .= '</div>';
-  return '<section id="home-recent-random" class="browse inner-padding">'.$html.'</section>';
+  return '<section id="home-recent-random" class="browse ">'.$html.'</section>';
 }
 
 /*

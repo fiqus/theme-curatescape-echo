@@ -147,7 +147,7 @@ echo head(array(
     </div>
 
     <section >
-        <div>
+        <div class="max-content-width">
             <?php echo rl_homepage_recent_random();?>
         </div>
     </section>
