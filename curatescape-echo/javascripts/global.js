@@ -1,6 +1,5 @@
 const search_btn = document.querySelector("header.primary #search-button");
 const search_container = document.querySelector("#header-search-container");
-const menu_btn = document.querySelector("header.primary #menu-button");
 const menu_container = document.querySelector("#header-menu-container");
 const body = document.querySelector("body");
 const map_container = document.querySelector("#curatescape-map-canvas");
@@ -106,39 +105,6 @@ search_btn.addEventListener("click", (e) => {
   setTimeout(() => {
     if (activeSearch) {
       activeSearch.focus();
-      body.classList.add("overlay-active");
-    }
-  }, 300);
-});
-// MENU BUTTON
-menu_btn.addEventListener("click", (e) => {
-  e.preventDefault();
-  let sublists = document.querySelectorAll("#header-menu-inner li a + ul");
-  if (sublists) {
-    sublists.forEach((ul) => {
-      let link = ul.previousElementSibling;
-      if (link) {
-        let arrow_btn = document.createElement("span");
-        arrow_btn.innerHTML = "&#9656;";
-        arrow_btn.addEventListener("click", (e) => {
-          ul.classList.toggle("reveal");
-          e.currentTarget.classList.toggle("open");
-        });
-        link.after(arrow_btn);
-      }
-    });
-  }
-  body.classList.remove("overlay-active");
-  setTimeout(() => {
-    closeSearch();
-  }, 300);
-  menu_container.classList.toggle("active");
-  let activeMenu = document.querySelector(
-    "#header-menu-container.active #header-menu-inner"
-  );
-  setTimeout(() => {
-    if (activeMenu) {
-      activeMenu.focus();
       body.classList.add("overlay-active");
     }
   }, 300);
