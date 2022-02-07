@@ -99,7 +99,7 @@ echo head(array(
                 <?php if ($has_image_count):?>
                 <div itemscope itemtype="http://schema.org/ImageGallery" id="images" class="item-gallery-min-width" data-toc="#images" data-pswp="<?php echo src('photoswipe.min.js', 'javascripts/pswp');?>" data-pswp-ui="<?php echo src('photoswipe-ui-default.min.js', 'javascripts/pswp');?>" data-pswp-css="<?php echo src('photoswipe.css', 'javascripts/pswp');?>" data-pswp-skin-css="<?php echo src('default-skin.css', 'javascripts/pswp/default-skin');?>">
                     
-                    <h2><?php echo __('Gallery');?></h2>
+                    <h2><?php echo 'Galería';?></h2>
                     <?php foreach ($filesforitem['images'] as $image) {
                         echo rl_gallery_figure($image, 'border');
                     }?>
@@ -119,7 +119,7 @@ echo head(array(
 
             <?php if ($has_location && plugin_is_active('Geolocation')): ?>
             <section id="map-section" data-toc="#map-section">
-                <h2><?php echo __('Map');?></h2>
+                <h2><?php echo 'Mapa';?></h2>
                 <?php echo rl_story_map_single(rl_the_title(), $location, $address, $hero_img, $hero_orientation);?>
             </section>
             <?php endif;?>
