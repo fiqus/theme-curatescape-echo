@@ -1736,7 +1736,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
             $item_image=null;
           }
           $html .= '<article class="item-result '.($hasImage ? 'has-image' : 'no-image').'">';
-          $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
+          $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.($item_image ? $item_image : img('logo-archivos.png')).');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
           $html .= '<div class="result-details">';
           // $html .= rl_filed_under($item);
           $html .= rl_the_title_expanded($item);
@@ -1788,7 +1788,7 @@ function tour_items($tour){
       $html .= '<article class="item-result '.($hasImage ? 'has-image' : 'no-image').'">';
 
       $html .= '<a href="'.$url.'" title="'.metadata($item, array('Dublin Core','Title')).'" class="image-container">';
-      $html .= '<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'">';
+      $html .= '<span class="item-image '.$orientation.'" style="background-image:url('.($hasImage ? $hasImage : img('logo-archivos.png')).');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'">';
       $html .= '</span>';
       $html .= '</a>';
       // $html .= link_to_item('<span class="item-image '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); 
