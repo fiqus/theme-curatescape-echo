@@ -96,7 +96,7 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                 }
                 ?>
                     <article class="item-result <?php echo $hasImage ? 'has-image' : 'no-image';?>">
-                        <?php echo link_to_item('<span class="item-image-no-border '.$orientation.'" style="background-image:url('.($item_image ? $item_image : img('logo-archivos.png')).');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); ?>
+                        <?php echo link_to_item('<span class="item-image-no-border '.$orientation.'" style="background-image:url('.$item_image.');" role="img" aria-label="Image: '.metadata($item, array('Dublin Core', 'Title')).'"></span>', array('title'=>metadata($item, array('Dublin Core','Title')),'class'=>'image-container')); ?>
 
                         <div class="result-details left-aligned">
                             <!-- <?php echo rl_filed_under($item);?> -->
