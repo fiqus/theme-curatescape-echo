@@ -92,7 +92,7 @@ echo head(array(
 
                 <?php if ($has_image_count):?>
                 <div itemscope itemtype="http://schema.org/ImageGallery" id="images" data-toc="#images" data-pswp="<?php echo src('photoswipe.min.js', 'javascripts/pswp');?>" data-pswp-ui="<?php echo src('photoswipe-ui-default.min.js', 'javascripts/pswp');?>" data-pswp-css="<?php echo src('photoswipe.css', 'javascripts/pswp');?>" data-pswp-skin-css="<?php echo src('default-skin.css', 'javascripts/pswp/default-skin');?>">
-                    <h2><?php echo __('Images');?></h2>
+                    <h2><?php echo 'Imagenes';?></h2>
 
                     <?php foreach ($filesforitem['images'] as $image) {
                         echo rl_gallery_figure($image, 'border');
@@ -112,7 +112,7 @@ echo head(array(
 
             <?php if ($has_location && plugin_is_active('Geolocation')): ?>
             <section id="map-section" data-toc="#map-section">
-                <h2><?php echo __('Location');?></h2>
+                <h2><?php echo 'Ubicación';?></h2>
                 <?php echo rl_story_map_single(rl_the_title(), $location, $address, $hero_img, $hero_orientation);?>
             </section>
             <div class="separator"></div>
@@ -126,13 +126,13 @@ echo head(array(
                 <?php if ($website = rl_meta_style(__('Official Website'), array(rl_official_website()))) {
                     echo $website;
                 }?>
-                <?php if ($cite = rl_meta_style(__('Citation Info'), array(rl_item_citation(),rl_post_date()))) {
+                <?php if ($cite = rl_meta_style('Citas:', array(rl_item_citation(),rl_post_date()))) {
                     echo $cite;
                 };?>
                 <?php if ($tours = rl_tours_for_item($item->id)) {
-                    echo rl_meta_style(__('Related Tours'), array($tours));
+                    echo rl_meta_style('Recorrido Relacionado', array($tours));
                 }?>
-                <?php if ($cats = rl_meta_style(__('Filed Under'), array(rl_collection($item),rl_subjects(),rl_tags($item)))) {
+                <?php if ($cats = rl_meta_style('Etiquetado con:', array(rl_collection($item),rl_subjects(),rl_tags($item)))) {
                     echo $cats;
                 }?>
             </section>
