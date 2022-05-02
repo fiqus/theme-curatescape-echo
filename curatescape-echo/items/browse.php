@@ -41,7 +41,7 @@ if (($tag || $tags) && !($query)) {
     $bodyclass .=' queryresults';
     $maptype='queryresults';
 } else {
-    $title = __('All %s', rl_item_label('plural'));
+    $title = __('%s', rl_item_label('plural'));
     $bodyclass .=' items stories';
 }
 echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass'=>$bodyclass));
@@ -60,9 +60,9 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                 <?php echo rl_item_browse_subnav();?>
             </nav>
             <div id="helper-links">
-                <span class="helper-label"><?php echo rl_icon('funnel').'&nbsp;'.__("Sort by: "); ?>
+                <span class="helper-label"><?php echo rl_icon('funnel').'&nbsp;'.'Ordenar por: '; ?>
                 </span>
-                <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title','Date Added'=>'added')); ?>
+                <?php echo browse_sort_links(array('Titulo'=>'Dublin Core,Title','Fecha'=>'added')); ?>
             </div>
         </div>
 
@@ -96,7 +96,7 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'items','bodyclass
                             <?php echo rl_filed_under($item);?>
                             <?php echo rl_the_title_expanded($item); ?>
                             <?php echo rl_the_byline($item, false);?>
-                            <?php echo link_to_item(__('View %s', rl_item_label('singular')),array('class'=>'readmore')).($has_location && $item->public ? ' <span class="sep-bar">|</span> <a role="button" data-id="'.$item->id.'" class="readmore showonmap" href="javascript:void(0)">'.__('Show on Map').'</a>' : null);?>
+                            <?php echo link_to_item(__('Ver %s', rl_item_label('singular')),array('class'=>'readmore')).($has_location && $item->public ? ' <span class="sep-bar">|</span> <a role="button" data-id="'.$item->id.'" class="readmore showonmap" href="javascript:void(0)">'.'Ver en el Mapa'.'</a>' : null);?>
                         </div>
 
                     </article>

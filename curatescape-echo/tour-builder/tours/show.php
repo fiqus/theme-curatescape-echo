@@ -16,7 +16,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
         <header id="tour-header">
             <div class="max-content-width inner-padding">
                 <h1 class="tour-title title"><?php echo $tourTitle; ?></h1>
-                <?php echo '<div class="byline">'.__('%s Locations', rl_tour_total_items($tour)).' | '.((tour('Credits')) ? __('Curated by %s', tour('Credits')) : __('Curated by %s', option('site_title'))).'</div>';?>
+                <?php echo '<div class="byline">'.__('%s Localizaciones', rl_tour_total_items($tour)).' | '.((tour('Credits')) ? __('Por %s', tour('Credits')) : __('Por %s', option('site_title'))).'</div>';?>
             </div>
         </header>
 
@@ -36,7 +36,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
 
         <div class="max-content-width inner-padding">
             <div class="separator flush-top center"></div>
-            <section id="tour-items" class="browse" aria-label="<?php echo __('%s Locations', rl_tour_label('singular'));?>">
+            <section id="tour-items" class="browse" aria-label="<?php echo __('%s Localizaciones', rl_tour_label('singular'));?>">
                 <?php $i=1;
                 foreach ($tour->getItems() as $tourItem):
                      if ($tourItem->public || current_user()):
@@ -51,7 +51,7 @@ echo head(array( 'maptype'=>$maptype,'title' => ''.$label.' | '.$tourTitle, 'con
                                 } else {
                                     $itemText = snippet(rl_the_text($tourItem), 0, 300, '&hellip;');
                                 }
-                                $itemText .= '<br><a class="readmore" href="'.$url.'">'.__('View %s', rl_item_label('singular')).'</a> <span class="sep-bar">|</span> <a role="button" data-index="'.$i.'" data-id="'.$itemID.'" class="readmore showonmap" href="javascript:void(0)">'.__('Show on Map').'</a>';
+                                $itemText .= '<br><a class="readmore" href="'.$url.'">'.__('Ver %s', rl_item_label('singular')).'</a> <span class="sep-bar">|</span> <a role="button" data-index="'.$i.'" data-id="'.$itemID.'" class="readmore showonmap" href="javascript:void(0)">'.'Mostrar en el mapa'.'</a>';
                           ?>
                 <article class="item-result tour">
                     <a aria-label="<?php echo strip_tags(metadata($tourItem, array('Dublin Core', 'Title'))); ?>" class="tour-image single" style="background-image:url(<?php echo rl_get_first_image_src($tourItem, 'square_thumbnails');?>)" href="<?php echo $url;?>"></a>

@@ -29,7 +29,7 @@ echo head(array('maptype'=>$maptype,'title'=>$title,'bodyid'=>'search','bodyclas
                 <?php if ($total_results): ?>
                 <?php echo search_form(array('show_advanced'=>true));?>
                 <div id="sort-links" class="sub">
-                    <span class="sort-label"><?php echo rl_icon('funnel').'&nbsp;'.__("Sort by: "); ?>
+                    <span class="sort-label"><?php echo rl_icon('funnel').'&nbsp;'.'Ordenar por: '; ?>
                     </span>
                     <?php echo browse_sort_links(array('Title'=>'title','Record Type'=>'record_type')); ?>
                 </div>

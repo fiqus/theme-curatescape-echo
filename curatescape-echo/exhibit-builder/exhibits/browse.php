@@ -57,7 +57,7 @@ echo head(array('maptype'=>'none','title'=>$title,'bodyid'=>'exhibits','bodyclas
             </nav>
 
             <div id="helper-links">
-                <span class="helper-label"><?php echo rl_icon('funnel').'&nbsp;'.__("Sort by: "); ?>
+                <span class="helper-label"><?php echo rl_icon('funnel').'&nbsp;'.'Ordenar por: '; ?>
                 </span>
                 <?php echo browse_sort_links(array('Title'=>'title','Date Added'=>'added')); ?>
             </div>

@@ -434,9 +434,9 @@ function rl_global_nav($nested=false)
 function rl_item_browse_subnav()
 {
    echo nav(array(
-      array('label'=>__('All') ,'uri'=> url('items/browse')),
-      array('label'=>__('Featured') ,'uri'=> url('items/browse?featured=1')),
-      array('label'=>__('Tags'), 'uri'=> url('items/tags')),
+      array('label'=>__('Todos') ,'uri'=> url('items/browse')),
+      array('label'=>__('Destacados') ,'uri'=> url('items/browse?featured=1')),
+      array('label'=>__('Etiquetas'), 'uri'=> url('items/tags')),
    ));
 }
 
