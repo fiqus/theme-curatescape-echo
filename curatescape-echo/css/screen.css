@@ -1832,6 +1832,10 @@ header.primary nav #nav-interactive a > i {
   justify-content: center;
 }
 
+#home-about-main p {
+  max-width: 100%;
+}
+
 #home-about-main .button,
 #home-cta .button {
   margin-bottom: 1rem;

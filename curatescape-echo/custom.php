@@ -380,9 +380,9 @@ function rl_theme_css($media='all')
 function rl_item_label($which=null)
 {
     if ($which=='singular') {
-        return ($singular=get_theme_option('item_label_singular')) ? $singular : __('Story');
+        return ($singular=get_theme_option('item_label_singular')) ? $singular : 'Artículo';
     } elseif ($which=='plural') {
-        return ($plural=get_theme_option('item_label_plural')) ? $plural : __('Stories');
+        return ($plural=get_theme_option('item_label_plural')) ? $plural : 'Artículos';
     } else {
         return __('Story');
     }
@@ -394,9 +394,9 @@ function rl_item_label($which=null)
 function rl_tour_label($which=null)
 {
     if ($which=='singular') {
-        return ($singular=get_theme_option('tour_label_singular')) ? $singular : __('Tour');
+        return ($singular=get_theme_option('tour_label_singular')) ? $singular : 'Recorrido';
     } elseif ($which=='plural') {
-        return ($plural=get_theme_option('tour_label_plural')) ? $plural : __('Tours');
+        return ($plural=get_theme_option('tour_label_plural')) ? $plural : 'Recorridos';
     } else {
         return __('Tour');
     }
@@ -534,11 +534,11 @@ function rl_global_header($html=null)
         <div id="nav-desktop">
             <?php echo get_theme_option('quicklink_story') ? '<a class="button transparent '.((is_current_url('/items/browse')) ? 'active' : null).'" href="'.url('items/browse').'">'.rl_icon("location").rl_item_label('plural').'</a>' : null; ?>
             <?php echo get_theme_option('quicklink_tour') && plugin_is_active('TourBuilder') ? '<a class="button transparent '.((is_current_url('/tours/browse')) ? 'active' : null).'" href="'.url('tours/browse').'">'.rl_icon("compass").rl_tour_label('plural').'</a>' : null; ?>
-            <?php echo get_theme_option('quicklink_map') && plugin_is_active('Geolocation') ? '<a class="button transparent '.((is_current_url('/items/map')) ? 'active' : null).'" href="'.url('items/map').'">'.rl_icon("map").__('Map').'</a>' : null; ?>
+            <?php echo get_theme_option('quicklink_map') && plugin_is_active('Geolocation') ? '<a class="button transparent '.((is_current_url('/items/map')) ? 'active' : null).'" href="'.url('items/map').'">'.rl_icon("map").'Mapa'.'</a>' : null; ?>
         </div>
         <div id="nav-interactive">
             <!-- Search -->
-            <a role="button" tabindex="0" title="<?php echo __('Search'); ?>" id="search-button" href="#footer-search-form" class="button transparent"><?php echo rl_icon("search"); ?><span><?php echo __('Search'); ?></span></a>
+            <a role="button" tabindex="0" title="<?php echo __('Search'); ?>" id="search-button" href="#footer-search-form" class="button transparent"><?php echo rl_icon("search"); ?><span><?php echo 'Buscar'; ?></span></a>
             <!-- Menu Button -->
             <a role="button" tabindex="0" title="<?php echo __('Menu'); ?>" id="menu-button" href="#footer-nav" class="button transparent"><?php echo rl_icon("menu"); ?><span><?php echo __('Menu'); ?></span></a>
         </div>
@@ -635,8 +635,8 @@ function rl_homepage_map($ishome=true,$totalItems=null)
     $zoom=(get_option('geolocation_default_zoom_level')) ? get_option('geolocation_default_zoom_level') : 12; ?>
     
     <section id="home-map" class="inner-padding browse">
-      <h2 class="query-header"><?php echo __('%s Map',rl_item_label());?></h2>
-      <div id="home-map-container" data-label="All Stories: <?php echo $totalItems;?>">
+      <h2 class="query-header"><?php echo 'Mapa';?></h2>
+      <div id="home-map-container" data-label="Todas Las Historias: <?php echo $totalItems;?>">
         <figure id="multi-map" data-json-source="/items/browse?output=mobile-json" data-lat="<?php echo $pluginlat; ?>" data-lon="<?php echo $pluginlon; ?>" data-zoom="<?php echo $zoom; ?>" data-default-layer="<?php echo get_theme_option('map_style') ? get_theme_option('map_style') : 'CARTO_VOYAGER'; ?>" data-color="<?php echo get_theme_option('marker_color'); ?>" data-featured-color="<?php echo get_theme_option('featured_marker_color'); ?>" data-featured-star="<?php echo get_theme_option('featured_marker_star'); ?>" data-root-url="<?php echo WEB_ROOT; ?>" data-maki-js="<?php echo src('maki/maki.min.js', 'javascripts'); ?>" data-providers="<?php echo src('providers.js', 'javascripts'); ?>" data-leaflet-js="<?php echo src('theme-leaflet/leaflet.js', 'javascripts'); ?>" data-leaflet-css="<?php echo src('theme-leaflet/leaflet.css', 'javascripts'); ?>" data-cluster-css="<?php echo src('leaflet.markercluster/leaflet.markercluster.min.css', 'javascripts'); ?>" data-cluster-js="<?php echo src('leaflet.markercluster/leaflet.markercluster.js', 'javascripts'); ?>" data-cluster="<?php echo $tour && get_theme_option('tour_clustering') ? '1' : get_theme_option('clustering'); ?>" data-fitbounds-label="<?php echo __('Zoom to fit all locations'); ?>">
              <div class="curatescape-map">
                 <div id="curatescape-map-canvas"></div>
@@ -644,7 +644,7 @@ function rl_homepage_map($ishome=true,$totalItems=null)
         </figure>
       </div>
       <?php if($ishome):?>
-      <div class="view-more-link"><a class="button" href=<?php echo url('items/map').'>'.__('View Map Page');?></a></div>
+      <!--div class="view-more-link"><a class="button" href=<?php echo url('items/map').'>'.__('View Map Page');?></a></div-->
       <?php endif;?>
     </section>
     <?php
@@ -1137,7 +1137,7 @@ function w3_valid_url($string){
 */
 function rl_the_byline($itemObj='item', $include_sponsor=false)
 {
-    $html='<div class="byline">'.__('By').' ';
+    $html='<div class="byline">'.'Por'.' ';
     if (metadata($itemObj, array('Dublin Core', 'Creator'))) {
         $authors=metadata($itemObj, array('Dublin Core', 'Creator'), array('all'=>true));
         $total=count($authors);
@@ -1494,7 +1494,7 @@ function rl_tour_preview($s)
     $html.=  '<article>';
     $html.=  '<h3 class="tour-result-title"><a href="'.record_url($record, 'show').'">'.($s['title'] ? $s['title'] : '[Unknown]').'</a></h3>';
     $html.=  '<div class="tour-meta-browse browse-meta-top byline">';
-    $html.= '<span class="total">'.rl_tour_total_items($record).' '.__('Locations').'</span> ~ ';
+    $html.= '<span class="total">'.rl_tour_total_items($record).' '.'Localizaciones'.'</span> ~ ';
     if (tour('Credits')) {
         $html.=  __('%1s curated by %2s', rl_tour_label('singular'), tour('Credits'));
     } else {
@@ -1524,7 +1524,7 @@ function rl_homepage_featured($num=4,$html=null,$index=1)
     $orderby = get_theme_option("homepage_featured_order") ? get_theme_option("homepage_featured_order") : "modified";
     $items=get_records('Item', array('featured'=>true,'hasImage'=>true,'sort_field' => $orderby, 'sort_dir' => 'd','public'=>true), $num);
     if(count($items)){
-      $html = '<h2 class="query-header">'.__('Featured %s',rl_item_label('plural')).'</h2>';
+      $html = '<h2 class="query-header">'.'Artículos Destacados'.'</h2>';
       $html .= '<div class="featured-card-container">';
         $primary=null;
         $secondary=null;
@@ -1574,7 +1574,7 @@ function rl_homepage_featured($num=4,$html=null,$index=1)
         }
       $html .= $primary.'<div class="secondary">'.$secondary.'</div>';
       $html .= '</div>';
-      $html .= '<div class="view-more-link"><a class="button" href="'.url('items').'?featured=1">'.__('Browse All Featured %2s', rl_item_label('plural')).'</a></div>';
+      $html .= '<div class="view-more-link"><a class="button" href="'.url('items').'?featured=1">'.'Ver Más Artículos Destacados'.'</a></div>';
       return '<section id="home-featured" class="inner-padding browse">'.$html.'</section>';
     }else{
       return rl_admin_message('home-featured',array('admin','super'));
@@ -1592,7 +1592,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
     switch ($mode) {
       case 'recent':
         $items=get_records('Item', array('featured'=>false,'hasImage'=>true,'sort_field' => 'added', 'sort_dir' => 'd','public'=>true), $num);
-        $param=__("Recent");
+        $param='Reciente';
         break;
       case 'random':
         $items=get_records('Item', array('featured'=>false,'hasImage'=>true,'sort_field' => 'random', 'sort_dir' => 'd','public'=>true), $num);;
@@ -1600,7 +1600,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
         break;
     }
     if(count($items)){
-      $html = '<h2 class="query-header">'.$param.' '.rl_item_label('plural').'</h2>';
+      $html = '<h2 class="query-header">'.'Artículos Recientes'.'</h2>';
       $html .= '<div class="browse-items">';
         foreach($items as $item){
           set_current_record('item', $item);
@@ -1630,7 +1630,7 @@ function rl_homepage_recent_random($num=3,$html=null,$index=1)
           $html .= '</article>';
         }
       $html .= '</div>';
-      $html .= '<div class="view-more-link"><a class="button" href="'.url('items').'">'.__('Browse All %2s', rl_item_label('plural')).'</a></div>';
+      $html .= '<div class="view-more-link"><a class="button" href="'.url('items').'">'.'Ver Todos Los Artículos Recientes'.'</a></div>';
       return '<section id="home-recent-random" class="browse inner-padding">'.$html.'</section>';
     }else{
       return rl_admin_message('home-recent-random',array('admin','super'));
@@ -1646,9 +1646,9 @@ function rl_homepage_tags($num=25)
   if(get_theme_option("homepage_tags") == "1"){
     $tags=get_records('Tag', array('sort_field' => 'count', 'sort_dir' => 'd'), $num);
     if(count($tags)){
-      $html = '<h2 class="query-header">'.__('Popular Tags').'</h2>';
+      $html = '<h2 class="query-header">'.'Etiquetas Populares'.'</h2>';
       $html.=tag_cloud($tags, 'items/browse');
-      $html.='<div class="view-more-link"><a class="button" href="'.url('items/tags').'">'.__('Browse All Tags').'</a></div>';
+      $html.='<div class="view-more-link"><a class="button" href="'.url('items/tags').'">'.'Ver todas las Etiquetas'.'</a></div>';
       return '<section id="home-tags" class="inner-padding">'.$html.'</section>';    
     }else{
       return rl_admin_message('home-tags',array('admin','super'));
@@ -1665,14 +1665,11 @@ function rl_homepage_projectmeta($html=null,$length=800)
   $text = get_theme_option('about') 
     ? strip_tags(get_theme_option('about'), '<a><em><i><cite><strong><b><u>') 
     : __('%s is powered by <a href="http://omeka.org/">Omeka</a> + <a href="http://curatescape.org/">Curatescape</a>, a humanities-centered web and mobile app framework available for both Android and iOS devices.', option('site_title'));
-  $html .= '<h2 class="query-header">'.__('Project Meta').'</h2>';
+  $html .= '<h2 class="query-header">'.'Nosotros'.'</h2>';
   $html .= '<div class="home-project-meta">';
     $html .= '<div id="home-about-main" class="inner-padding">'; 
-      $html .= '<h3 class="query-header">'.__('About').'</h3>';
       $html .= '<p>'.substr($text, 0, $length).(($length < strlen($text)) ? '&hellip;. ' : null).'</p>';
-      $html .= '<div class="about-link"><a class="button" href="'.url('about').'">'.__('Read More About Us').'</a></div>';
     $html .= '</div>';
-    $html .= $cta;
   $html .= '</div>';
   
   return '<section id="home-about" class="inner-padding">'.$html.'</section>';
@@ -1746,7 +1743,7 @@ function rl_homepage_tours($html=null, $num=4, $scope='featured')
     $customheader=get_theme_option('tour_header');
     if ($scope=='random') {
       shuffle($tours);
-      $heading = $customheader ? $customheader : __('Take a').' '.rl_tour_label('singular');
+      $heading = $customheader ? $customheader : 'Tomar un Recorrido';
     } else {
       $heading = $customheader ? $customheader : ucfirst($scope).' '.rl_tour_label('plural');
     }
@@ -1773,13 +1770,13 @@ function rl_homepage_tours($html=null, $num=4, $scope='featured')
           $html .= '<a aria-label="'.tour('title').'" class="tour-image '.(count($bg) < 4 ? 'single' : 'multi').'" style="background-image:'.implode(',', $bg).'" href="'.WEB_ROOT.'/tours/show/'.tour('id').'"></a><div class="separator thin flush-bottom flush-top"></div>';
           $html .= '<div class="tour-inner">';
             $html .= '<a class="permalink" href="' . WEB_ROOT . '/tours/show/'. tour('id').'"><h3 class="title">' . tour('title').'</h3></a>'.
-                '<span class="byline">'.rl_icon('compass').__('%s Locations', rl_tour_total_items($tours[$i])).'</span>';
+                '<span class="byline">'.rl_icon('compass').__('%s Localizaciones', rl_tour_total_items($tours[$i])).'</span>';
             $html .= '<p class="tour-snip">'.snippet(strip_tags(htmlspecialchars_decode(tour('description'))), 0, 200).'</p>';
           $html .= '</div>';
         $html .= '</article>';
       }
       $html .= '</div>';
-      $html .= '<div class="view-more-link"><a class="button" href="'.WEB_ROOT.'/tours/browse/">'.__('Browse All <span>%s</span>', rl_tour_label('plural')).'</a></div>';
+      $html .= '<div class="view-more-link"><a class="button" href="'.WEB_ROOT.'/tours/browse/">'.'Ver todos los Recorridos'.'</a></div>';
       return '<section id="home-tours" class="browse inner-padding">'.$html.'</section>';
     } else {
       return rl_admin_message('home-tours',array('admin','super'));
