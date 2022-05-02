@@ -3,7 +3,7 @@ $label=rl_tour_label('plural');
 if (isset($_GET['featured']) && $_GET['featured'] == 1) {
     $title = __('Featured %1$s: %2$s', $label, total_tours());
 } else {
-    $title = __('All %1$s: %2$s', $label, total_tours());
+    $title = __('%1$s: %2$s', $label, total_tours());
 }
 echo head(
     array(
@@ -21,7 +21,7 @@ echo head(
                 <?php echo rl_tour_browse_subnav(rl_tour_label('plural'), null); ?>
             </nav>
             <div id="helper-links">
-                <span class="helper-label"><?php echo rl_icon('information-circle').'&nbsp;'.(get_theme_option('tour_info') ? strip_tags(get_theme_option('tour_info'),'<a>') :  __("%s are self-guided.", rl_tour_label('plural'))); ?></span>
+                <span class="helper-label"><?php echo rl_icon('information-circle').'&nbsp;'.(get_theme_option('tour_info') ? strip_tags(get_theme_option('tour_info'),'<a>') :  __("%s son auto-guiados.", rl_tour_label('plural'))); ?></span>
             </div>
         </div>
         <div id="primary" class="browse">
@@ -48,8 +48,8 @@ echo head(
                             $html .= '<a aria-label="'.tour('title').'" class="tour-image '.(count($bg) < 4 ? 'single' : 'multi').'" style="background-image:'.implode(',', $bg).'" href="'.WEB_ROOT.'/tours/show/'.tour('id').'"></a><div class="separator thin flush-bottom flush-top"></div>';
                             $html .= '<div class="tour-inner">';
                             $html .= '<a class="permalink" href="' . WEB_ROOT . '/tours/show/'. tour('id').'"><h3 class="title">' . tour('title').'</h3></a>'.
-                                '<span class="byline">'.rl_icon('compass').__('%s Locations', rl_tour_total_items($tour)).'</span>';
-                            $html .= '<p class="tour-snip">'.snippet(strip_tags(htmlspecialchars_decode(tour('description'))), 0, 200).'<br><a class="readmore" href="'.WEB_ROOT . '/tours/show/'. tour('id').'">'.__('View %s', rl_tour_label('singular')).'</a></p>';
+                                '<span class="byline">'.rl_icon('compass').__('%s Localizaciones', rl_tour_total_items($tour)).'</span>';
+                            $html .= '<p class="tour-snip">'.snippet(strip_tags(htmlspecialchars_decode(tour('description'))), 0, 200).'<br><a class="readmore" href="'.WEB_ROOT . '/tours/show/'. tour('id').'">'.'Ver Recorrido'.'</a></p>';
                             $html .= '</div>';
                             $html .= '</article>';
                         }

@@ -467,8 +467,8 @@ function rl_collection_browse_subnav()
 function rl_tour_browse_subnav()
 {
    echo nav(array(
-      array('label'=>__('All') ,'uri'=> url('tours/browse')),
-      array('label'=>__('Featured') ,'uri'=> url('tours/browse?featured=1')),
+      array('label'=>'Todos' ,'uri'=> url('tours/browse')),
+      array('label'=>'Destacados' ,'uri'=> url('tours/browse?featured=1')),
    ));
 }
 
