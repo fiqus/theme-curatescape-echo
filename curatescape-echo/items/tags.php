@@ -9,7 +9,7 @@
 <div id="content" role="main">
     <article class="browse tags">
         <div class="browse-header">
-            <h2 class="query-header"><?php echo __('Tags: %s', total_records('Tags'));?></h2>
+            <h2 class="query-header"><?php echo __('Etiquetas: %s', total_records('Tags'));?></h2>
             <nav class="secondary-nav" id="tag-browse">
                 <?php rl_item_browse_subnav(); ?>
             </nav>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div id="primary" class="">
-            <section id="tags" aria-label="<?php echo __('Tags');?>">
+            <section id="tags" aria-label="<?php 'Etiquetas';?>">
                 <?php echo tag_cloud($tags, 'items/browse', 9, true, 'after'); ?>
             </section>
         </div><!-- end primary -->
