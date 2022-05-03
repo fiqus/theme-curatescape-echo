@@ -1707,10 +1707,10 @@ function rl_homepage_cta($html=null,$length=800){
 function rl_homepage_stealthmode($html = null)
 {
   $html .= link_to_home_page(rl_the_logo(), array('class'=>'wiggle', 'aria-label'=>'Logo'));
-  $html .= '<h3 class="query-header">'.__("Check Back Soon").'</h3>';
+  $html .= '<h3 class="query-header">'.'Vuelve pronto'.'</h3>';
   $html .= '<div class="stealth-main">';
     $html .= '<div class="stealth-text">'; 
-      $html .= '<p>'.__('%s is temporarily unavailable.','<strong>'.option('site_title').'</strong>').'</p>';
+      $html .= '<p>'.__('%s va a estar disponible a partir del 07/05/2022.','<strong>'.option('site_title').'</strong>').'</p>';
     $html .= '</div>';
   $html .= '</div>';
   return '<section id="home-stealth" class="inner-padding">'.$html.'</section>';
